@@ -5,70 +5,71 @@
 @layer base {
   body {
     background-color: #FFFFFF;
-    color: #171717;
+    color: #303632;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   h1, h2, h3, .font-serif {
     font-family: 'Merriweather', Georgia, serif;
+    color: #303632;
   }
 }
 
 @layer components {
-  /* Botón principal institucional: Rojo (#D71920) */
+  /* Botón principal institucional: Verde Bosque (#214C3B) */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-red-600 text-white hover:bg-red-700 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[#214C3B] text-white hover:bg-[#16382D] active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#214C3B] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
-  /* Botón secundario: Blanco con borde gris medio */
+  /* Botón secundario: Blanco con borde gris medio y texto carbón */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold bg-white text-neutral-800 border border-neutral-300 hover:bg-neutral-100 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold bg-white text-[#303632] border border-[#737B76]/30 hover:bg-[#F1F3F1] active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#737B76]/40 focus:ring-offset-2 disabled:opacity-50;
   }
 
-  /* Botón de acción destacada: Rojo intenso */
+  /* Botón de acción destacada: Verde Profundo */
   .btn-terracotta {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-red-600 text-white hover:bg-red-700 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-[#214C3B] text-white hover:bg-[#16382D] active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#214C3B] focus:ring-offset-2 disabled:opacity-50;
   }
 
-  /* Botón de gran acción (ej: Iniciar Encuesta / Finalizar): Rojo institucional con sombra */
+  /* Botón de gran acción (ej: Iniciar Encuesta): Verde bosque con sombra suave */
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-black bg-red-600 text-white hover:bg-red-700 active:scale-[0.99] transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-black bg-[#214C3B] text-white hover:bg-[#16382D] active:scale-[0.99] transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#214C3B] focus:ring-offset-2 disabled:opacity-50;
   }
 
   /* Tarjetas limpias en blanco y gris claro */
   .card {
-    @apply bg-white rounded-xl sm:rounded-2xl border border-neutral-200 shadow-soft p-4 sm:p-6 transition-all;
+    @apply bg-white rounded-xl sm:rounded-2xl border border-[#737B76]/20 shadow-soft p-4 sm:p-6 transition-all;
   }
 
   .card-cream {
-    @apply bg-neutral-50 rounded-xl sm:rounded-2xl border border-neutral-200 p-4 sm:p-6;
+    @apply bg-[#F1F3F1] rounded-xl sm:rounded-2xl border border-[#737B76]/15 p-4 sm:p-6;
   }
 
   .badge-forest {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-neutral-100 text-neutral-800 border border-neutral-200;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#E4EEE8] text-[#214C3B] border border-[#214C3B]/20;
   }
 
   .badge-terracotta {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#E4EEE8] text-[#214C3B] border border-[#214C3B]/20;
   }
 
   .badge-gold {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-neutral-100 text-neutral-900 border border-neutral-300;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#E4EEE8] text-[#16382D] border border-[#214C3B]/20;
   }
 }
 
-/* Custom scrollbars en tonos neutros y acento rojo sutil */
+/* Custom scrollbars en tonos neutros y acento verde bosque */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F3F4F6;
+  background: #F1F3F1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #9CA3AF;
+  background: #737B76;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D71920;
+  background: #214C3B;
 }

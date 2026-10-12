@@ -31,11 +31,11 @@ export const BottomMobileNav: React.FC<BottomMobileNavProps> = ({
           onClick={onNavigateHome}
           className={`flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all ${
             currentView === 'public'
-              ? 'text-red-600 font-bold'
-              : 'text-stone-500 hover:text-stone-800'
+              ? 'text-[#214C3B] font-bold'
+              : 'text-[#737B76] hover:text-[#303632]'
           }`}
         >
-          <div className={`p-1 rounded-lg transition-colors ${currentView === 'public' ? 'bg-red-50 text-red-600' : ''}`}>
+          <div className={`p-1 rounded-lg transition-colors ${currentView === 'public' ? 'bg-[#E4EEE8] text-[#214C3B]' : ''}`}>
             <Home className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
           <span className="text-[10px] tracking-tight mt-0.5 leading-tight">Inicio</span>
@@ -45,22 +45,22 @@ export const BottomMobileNav: React.FC<BottomMobileNavProps> = ({
         <button
           type="button"
           onClick={onNavigateSurvey}
-          className="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-stone-700 transition-all active:scale-95"
+          className="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[#303632] transition-all active:scale-95"
         >
-          <div className="p-1 rounded-lg bg-red-600 text-white shadow-xs">
+          <div className="p-1 rounded-lg bg-[#214C3B] text-white shadow-xs">
             <ClipboardCheck className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <span className="text-[10px] font-bold text-neutral-900 tracking-tight mt-0.5 leading-tight">Encuesta</span>
+          <span className="text-[10px] font-bold text-[#303632] tracking-tight mt-0.5 leading-tight">Encuesta</span>
         </button>
 
         {/* 3. Botón Pilares */}
         <button
           type="button"
           onClick={onNavigatePillars}
-          className="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-stone-500 hover:text-stone-800 transition-all"
+          className="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[#737B76] hover:text-[#303632] transition-all"
         >
           <div className="p-1 rounded-lg">
-            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-stone-600" />
+            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-[#737B76]" />
           </div>
           <span className="text-[10px] tracking-tight mt-0.5 leading-tight">Pilares</span>
         </button>
@@ -73,14 +73,14 @@ export const BottomMobileNav: React.FC<BottomMobileNavProps> = ({
           title="Acceso reservado"
           className={`flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all active:scale-90 ${
             currentView === 'admin'
-              ? 'text-red-600'
-              : 'text-stone-400 hover:text-stone-700'
+              ? 'text-[#214C3B]'
+              : 'text-[#737B76] hover:text-[#303632]'
           }`}
         >
-          <div className={`p-1 rounded-lg transition-colors ${currentView === 'admin' ? 'bg-red-50 text-red-600' : ''}`}>
-            <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-500 hover:text-neutral-800" />
+          <div className={`p-1 rounded-lg transition-colors ${currentView === 'admin' ? 'bg-[#E4EEE8] text-[#214C3B]' : ''}`}>
+            <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-inherit" />
           </div>
-          <span className="text-[10px] text-stone-400 tracking-tight mt-0.5 leading-tight">Acceso</span>
+          <span className="text-[10px] text-[#737B76] tracking-tight mt-0.5 leading-tight">Acceso</span>
         </button>
 
       </div>

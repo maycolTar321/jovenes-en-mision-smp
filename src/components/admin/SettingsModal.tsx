@@ -120,7 +120,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-stone-200">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-red-50 text-red-600">
+            <div className="p-2.5 rounded-xl bg-[#E4EEE8] text-[#214C3B]">
               <Settings className="w-5 h-5" />
             </div>
             <div>
@@ -144,7 +144,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               <label className="text-xs font-bold uppercase tracking-wider text-stone-700">
                 URL del Web App de Google Apps Script:
               </label>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-red-50 text-red-700 font-bold">
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#E4EEE8] text-[#16382D] font-bold">
                 Backend v3.0
               </span>
             </div>
@@ -155,7 +155,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 placeholder="https://script.google.com/macros/s/.../exec"
                 value={formData.appsScriptUrl}
                 onChange={e => setFormData({ ...formData, appsScriptUrl: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-xs font-mono text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-xs font-mono text-stone-900 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
               />
 
               <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
@@ -187,18 +187,18 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
             {testResult && (
               <div className={`p-3 rounded-xl text-xs flex items-start gap-2.5 animate-fadeIn ${
-                testResult.success ? 'bg-neutral-100 text-neutral-900 border border-neutral-300' : 'bg-red-50 text-red-800 border border-red-200'
+                testResult.success ? 'bg-neutral-100 text-neutral-900 border border-neutral-300' : 'bg-[#E4EEE8] text-[#16382D] border border-[#214C3B]/20'
               }`}>
-                {testResult.success ? <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0 mt-0.5" /> : <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />}
+                {testResult.success ? <CheckCircle2 className="w-4 h-4 text-[#214C3B] shrink-0 mt-0.5" /> : <AlertCircle className="w-4 h-4 text-[#214C3B] shrink-0 mt-0.5" />}
                 <span>{testResult.message}</span>
               </div>
             )}
 
             {sheetsInitResult && (
               <div className={`p-3 rounded-xl text-xs flex items-start gap-2.5 animate-fadeIn ${
-                sheetsInitResult.success ? 'bg-neutral-100 text-neutral-900 border border-neutral-300' : 'bg-red-50 text-red-800 border border-red-200'
+                sheetsInitResult.success ? 'bg-neutral-100 text-neutral-900 border border-neutral-300' : 'bg-[#E4EEE8] text-[#16382D] border border-[#214C3B]/20'
               }`}>
-                {sheetsInitResult.success ? <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0 mt-0.5" /> : <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />}
+                {sheetsInitResult.success ? <CheckCircle2 className="w-4 h-4 text-[#214C3B] shrink-0 mt-0.5" /> : <AlertCircle className="w-4 h-4 text-[#214C3B] shrink-0 mt-0.5" />}
                 <span>{sheetsInitResult.message}</span>
               </div>
             )}
@@ -208,7 +208,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200 space-y-2.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-stone-700 flex items-center gap-1.5">
-                <Table className="w-3.5 h-3.5 text-red-600" />
+                <Table className="w-3.5 h-3.5 text-[#214C3B]" />
                 Estructura de Base de Datos (8 Hojas de Cálculo):
               </span>
               <span className="text-[10px] text-stone-500 font-medium">Requeridas por Prompt 5</span>
@@ -217,7 +217,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono font-medium">
               {REQUIRED_SHEETS.map(sheet => (
                 <div key={sheet} className="p-1.5 bg-white rounded-lg border border-stone-200 text-stone-800 flex items-center gap-1 truncate" title={sheet}>
-                  <Check className="w-3 h-3 text-red-600 shrink-0" />
+                  <Check className="w-3 h-3 text-[#214C3B] shrink-0" />
                   <span className="truncate">{sheet.replace(/^\d+\.\s*/, '')}</span>
                 </div>
               ))}
@@ -229,7 +229,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <h4 className="font-serif font-bold text-neutral-900 text-sm flex items-center gap-2">
-                  <PlayCircle className="w-4 h-4 text-red-600" />
+                  <PlayCircle className="w-4 h-4 text-[#214C3B]" />
                   <span>3. Verificación de Integración End-to-End</span>
                 </h4>
                 <p className="text-xs text-neutral-700 mt-0.5">
@@ -255,12 +255,12 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <Terminal className="w-3.5 h-3.5 text-neutral-400" />
                     Diagnóstico de Conexión en Vivo
                   </span>
-                  <span className={e2eTestReport.success ? 'text-white font-bold' : 'text-red-400 font-bold'}>
+                  <span className={e2eTestReport.success ? 'text-white font-bold' : 'text-[#214C3B] font-bold'}>
                     {e2eTestReport.success ? '✓ VERIFICACIÓN EXITOSA' : '✗ FALLO'}
                   </span>
                 </div>
                 {e2eTestReport.diagnostics.map((line, idx) => (
-                  <div key={idx} className={line.startsWith('[OK]') ? 'text-red-400' : line.startsWith('[ERROR]') ? 'text-red-400' : 'text-stone-300'}>
+                  <div key={idx} className={line.startsWith('[OK]') ? 'text-[#214C3B]' : line.startsWith('[ERROR]') ? 'text-[#214C3B]' : 'text-stone-300'}>
                     {line}
                   </div>
                 ))}
@@ -305,7 +305,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <button
               type="button"
               onClick={handleReset}
-              className="text-xs text-red-600 hover:text-red-700 flex items-center gap-1.5 font-medium hover:underline"
+              className="text-xs text-[#214C3B] hover:text-[#16382D] flex items-center gap-1.5 font-medium hover:underline"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>Restaurar datos de muestra</span>

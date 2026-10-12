@@ -24,11 +24,11 @@ export const PillarImage: React.FC<PillarImageProps> = ({
   const getFallbackIcon = () => {
     switch (pillarNumber) {
       case 1:
-        return <Sprout className="w-12 h-12 text-red-600" />;
+        return <Sprout className="w-12 h-12 text-[#214C3B]" />;
       case 2:
-        return <HeartHandshake className="w-12 h-12 text-red-600" />;
+        return <HeartHandshake className="w-12 h-12 text-[#214C3B]" />;
       case 3:
-        return <Sparkles className="w-12 h-12 text-red-600" />;
+        return <Sparkles className="w-12 h-12 text-[#214C3B]" />;
       default:
         return <ImageIcon className="w-12 h-12 text-stone-500" />;
     }
@@ -80,7 +80,7 @@ export const PillarImage: React.FC<PillarImageProps> = ({
       {/* Badge sobre la foto */}
       <div className="absolute top-3.5 left-3.5 z-10">
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-white/95 text-stone-900 backdrop-blur-md shadow-md border border-white/50">
-          <span className="w-2 h-2 rounded-full bg-red-600 animate-ping inline-block" />
+          <span className="w-2 h-2 rounded-full bg-[#214C3B] animate-ping inline-block" />
           Pilar {pillarNumber}
         </span>
       </div>

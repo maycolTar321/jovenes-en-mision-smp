@@ -242,7 +242,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   if (totalRegistered === 0) {
     return (
       <div className="card text-center py-16 space-y-4 animate-fadeIn">
-        <div className="w-16 h-16 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mx-auto">
+        <div className="w-16 h-16 rounded-2xl bg-[#E4EEE8] text-[#214C3B] flex items-center justify-center mx-auto">
           <Users className="w-8 h-8" />
         </div>
         <h3 className="font-serif font-bold text-xl text-stone-900">
@@ -270,11 +270,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       <div className="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#16382D] bg-[#E4EEE8] px-3 py-1 rounded-full border border-[#214C3B]/20">
               Panel Pastoral • Métricas Oficiales
             </span>
-            <span className="text-xs px-2.5 py-0.5 rounded-full bg-red-50 text-red-800 font-semibold border border-red-200 flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#E4EEE8] text-[#16382D] font-semibold border border-[#214C3B]/20 flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-[#214C3B] animate-pulse" />
               {config?.appsScriptUrl ? 'Google Sheets Conectado' : 'Almacenamiento Local'}
             </span>
           </div>
@@ -319,8 +319,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       </div>
 
       {exportState === 'completed' && (
-        <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-900 text-xs flex items-center gap-2 animate-fadeIn font-semibold">
-          <CheckCircle2 className="w-4 h-4 text-red-600" />
+        <div className="p-3 bg-[#E4EEE8] border border-[#214C3B]/20 rounded-xl text-[#16382D] text-xs flex items-center gap-2 animate-fadeIn font-semibold">
+          <CheckCircle2 className="w-4 h-4 text-[#214C3B]" />
           <span>¡Archivo generado y descargado exitosamente!</span>
         </div>
       )}
@@ -331,7 +331,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-soft space-y-3">
         <div className="flex items-center justify-between pb-2 border-b border-stone-100">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-700">
-            <Filter className="w-4 h-4 text-red-600" />
+            <Filter className="w-4 h-4 text-[#214C3B]" />
             <span>Filtros Dinámicos del Diagnóstico:</span>
           </div>
           <span className="text-xs text-stone-500 font-medium">
@@ -346,7 +346,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <select
               value={filterGroup}
               onChange={e => setFilterGroup(e.target.value)}
-              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none"
+              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
             >
               <option value="all">Todos los grupos ({activeGroupsCount})</option>
               {CONFIRMATION_GROUPS.map(g => (
@@ -361,7 +361,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <select
               value={filterPillar}
               onChange={e => setFilterPillar(e.target.value)}
-              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none"
+              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
             >
               <option value="all">Todos los pilares</option>
               <option value="casa_comun">Pilar 1: Casa Común</option>
@@ -376,7 +376,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <select
               value={filterSkill}
               onChange={e => setFilterSkill(e.target.value)}
-              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none"
+              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
             >
               <option value="all">Todas las habilidades</option>
               {Object.keys(SKILL_LABELS).map(k => (
@@ -391,7 +391,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <select
               value={filterAvailability}
               onChange={e => setFilterAvailability(e.target.value)}
-              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none"
+              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
             >
               <option value="all">Todos los horarios</option>
               <option value="sabado_manana">Sábado Mañana</option>
@@ -407,7 +407,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <select
               value={filterStatus}
               onChange={e => setFilterStatus(e.target.value)}
-              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none"
+              className="w-full p-2 rounded-xl border border-stone-300 bg-stone-50 text-stone-900 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
             >
               <option value="all">Todos los estados</option>
               <option value="completada">Completada</option>
@@ -430,9 +430,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </div>
 
         {/* Tarjeta 2: Códigos Habilitados & Completadas */}
-        <div className="card border-l-4 border-l-red-600">
+        <div className="card border-l-4 border-l-[#214C3B]">
           <p className="text-[11px] uppercase font-bold text-stone-500 tracking-wider">Completadas / Códigos</p>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-red-600 mt-1">{completedCount}</h3>
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#214C3B] mt-1">{completedCount}</h3>
           <p className="text-[10px] text-stone-500 mt-1">De {totalCodesEnabled} códigos emitidos ({pendingCount} pendientes)</p>
         </div>
 
@@ -580,7 +580,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </h3>
               <p className="text-xs text-stone-500">Disposición a perseverar después del retiro</p>
             </div>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-red-50 text-red-800 font-bold border border-red-200">
+            <span className="text-[11px] px-2 py-0.5 rounded bg-[#E4EEE8] text-[#16382D] font-bold border border-[#214C3B]/20">
               Perseverancia
             </span>
           </div>
@@ -652,7 +652,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             </p>
           </div>
 
-          <div className="text-xs font-mono font-bold text-red-700 bg-red-50 px-3 py-1.5 rounded-xl border border-red-200 self-start sm:self-auto">
+          <div className="text-xs font-mono font-bold text-[#16382D] bg-[#E4EEE8] px-3 py-1.5 rounded-xl border border-[#214C3B]/20 self-start sm:self-auto">
             {filteredCount} registros visualizados
           </div>
         </div>
@@ -692,7 +692,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         {p.confirmationGroup}
                       </td>
                       <td className="px-4 py-3">
-                        <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-red-50 text-red-700 border border-red-200">
+                        <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#E4EEE8] text-[#16382D] border border-[#214C3B]/20">
                           {pilarInfo?.title.split(' ')[0] || p.primaryPillar}
                         </span>
                       </td>
@@ -707,7 +707,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       <td className="px-4 py-3 text-right">
                         <button
                           onClick={() => setInspectingParticipant(p)}
-                          className="px-2.5 py-1 rounded-lg bg-stone-100 hover:bg-red-50 text-stone-700 hover:text-red-700 font-medium inline-flex items-center gap-1"
+                          className="px-2.5 py-1 rounded-lg bg-stone-100 hover:bg-[#E4EEE8] text-stone-700 hover:text-[#16382D] font-medium inline-flex items-center gap-1"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>Ver Ficha</span>

@@ -129,7 +129,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
       {/* Top Banner */}
       <div className="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#16382D] bg-[#E4EEE8] px-3 py-1 rounded-full border border-[#214C3B]/20">
             Módulo I • Ficha Técnica y Pastoral
           </span>
           <h2 className="text-2xl font-serif font-bold text-neutral-900 mt-2">
@@ -155,7 +155,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
         {/* 1. VER */}
         <div className="card space-y-4">
           <div className="flex items-center gap-2 pb-2 border-b border-stone-100 text-neutral-900">
-            <Eye className="w-5 h-5 text-red-600" />
+            <Eye className="w-5 h-5 text-[#214C3B]" />
             <h3 className="font-serif font-bold text-base">1. VER — Diagnóstico y Realidad</h3>
           </div>
           <div>
@@ -166,7 +166,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
               rows={4}
               value={data.contextDiagnosis}
               onChange={e => setData({ ...data, contextDiagnosis: e.target.value })}
-              className="w-full p-3 rounded-xl border border-stone-300 text-xs text-stone-800 focus:ring-2 focus:ring-red-600 focus:outline-none"
+              className="w-full p-3 rounded-xl border border-stone-300 text-xs text-stone-800 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
@@ -209,7 +209,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
               rows={3}
               value={data.biblicalInspiration}
               onChange={e => setData({ ...data, biblicalInspiration: e.target.value })}
-              className="w-full p-3 rounded-xl border border-stone-300 text-xs text-stone-800 focus:ring-2 focus:ring-red-600 focus:outline-none"
+              className="w-full p-3 rounded-xl border border-stone-300 text-xs text-stone-800 focus:ring-2 focus:ring-[#214C3B] focus:outline-none"
             />
           </div>
           <div>
@@ -230,7 +230,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
       <div className="card space-y-6">
         <div className="flex items-center justify-between pb-2 border-b border-stone-100">
           <div className="flex items-center gap-2 text-neutral-900">
-            <Calendar className="w-5 h-5 text-red-600" />
+            <Calendar className="w-5 h-5 text-[#214C3B]" />
             <h3 className="font-serif font-bold text-base">3. ACTUAR — Cronograma de Hitos y Tareas</h3>
           </div>
           <span className="text-xs text-stone-500">
@@ -244,7 +244,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
             <div
               key={m.id}
               className={`p-3.5 rounded-xl border flex items-center justify-between transition-all ${
-                m.completed ? 'bg-red-50/40 border-red-200' : 'bg-white border-stone-200'
+                m.completed ? 'bg-[#E4EEE8]/40 border-[#214C3B]/20' : 'bg-white border-stone-200'
               }`}
             >
               <div 
@@ -252,7 +252,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
                 className="flex items-center gap-3 cursor-pointer flex-1"
               >
                 {m.completed ? (
-                  <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[#214C3B] shrink-0" />
                 ) : (
                   <Circle className="w-5 h-5 text-stone-400 shrink-0" />
                 )}
@@ -268,7 +268,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
 
               <button
                 onClick={() => removeMilestone(m.id)}
-                className="p-1.5 text-stone-400 hover:text-red-600 rounded-lg"
+                className="p-1.5 text-stone-400 hover:text-[#214C3B] rounded-lg"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -310,7 +310,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
           </div>
           <div className="flex items-center gap-3 text-xs">
             <span className="font-bold text-stone-900">Total: {totalBudget} Bs.</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 font-semibold border border-red-200">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#E4EEE8] text-[#16382D] font-semibold border border-[#214C3B]/20">
               Cubierto: {coveredBudget} Bs.
             </span>
           </div>
@@ -338,7 +338,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
                       onClick={() => toggleBudgetItemDonation(item.id)}
                       className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
                         item.isCoveredByDonation
-                          ? 'bg-red-50 text-red-700 border border-red-200'
+                          ? 'bg-[#E4EEE8] text-[#16382D] border border-[#214C3B]/20'
                           : 'bg-stone-200 text-stone-800'
                       }`}
                     >
@@ -348,7 +348,7 @@ export const ProjectTracker: React.FC<ProjectTrackerProps> = ({
                   <td className="p-3 text-right">
                     <button
                       onClick={() => removeBudgetItem(item.id)}
-                      className="p-1 text-stone-400 hover:text-red-600"
+                      className="p-1 text-stone-400 hover:text-[#214C3B]"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>

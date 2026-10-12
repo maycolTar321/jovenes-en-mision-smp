@@ -180,8 +180,8 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
       <div className="bg-white rounded-3xl border border-stone-200/90 p-6 sm:p-8 shadow-soft">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200/80 mb-2">
-              <BookOpen className="w-3.5 h-3.5 text-red-600" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#E4EEE8] text-[#16382D] border border-[#214C3B]/20/80 mb-2">
+              <BookOpen className="w-3.5 h-3.5 text-[#214C3B]" />
               <span>Módulo Documental Oficial • Parroquia San Martín de Porres</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-neutral-900">
@@ -196,7 +196,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <button
               onClick={handleExportDocAExcel}
               disabled={downloading !== null}
-              className="px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-3.5 py-2 bg-[#214C3B] hover:bg-[#16382D] text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
             >
               <FileSpreadsheet className="w-4 h-4" />
               <span>{downloading === 'docA-excel' ? 'Exportando...' : 'Excel Estadístico (.xlsx)'}</span>
@@ -212,7 +212,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <button
               onClick={handleExportDocBPdf}
               disabled={downloading !== null}
-              className="px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-3.5 py-2 bg-[#214C3B] hover:bg-[#16382D] text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
             >
               <Download className="w-4 h-4" />
               <span>{downloading === 'docB-pdf' ? 'Generando...' : 'PDF Documento B'}</span>
@@ -226,7 +226,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             onClick={() => setActiveSubTab('docA')}
             className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
               activeSubTab === 'docA'
-                ? 'border-red-600 text-red-600'
+                ? 'border-[#214C3B] text-[#214C3B]'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -243,7 +243,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             onClick={() => setActiveSubTab('docB')}
             className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
               activeSubTab === 'docB'
-                ? 'border-red-600 text-red-600'
+                ? 'border-[#214C3B] text-[#214C3B]'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -258,7 +258,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             onClick={() => setActiveSubTab('versions')}
             className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
               activeSubTab === 'versions'
-                ? 'border-red-600 text-red-600'
+                ? 'border-[#214C3B] text-[#214C3B]'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -334,7 +334,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                     </div>
                     <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-red-600 rounded-full transition-all duration-500"
+                        className="h-full bg-[#214C3B] rounded-full transition-all duration-500"
                         style={{ width: `${g.percent}%` }}
                       />
                     </div>
@@ -382,7 +382,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 {stats.skillsBreakdown.map((s, i) => (
                   <div key={i} className="flex items-center justify-between p-2 rounded-lg hover:bg-stone-50 text-xs">
                     <span className="text-stone-700">{s.label}</span>
-                    <span className="font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded-full">
+                    <span className="font-semibold text-[#16382D] bg-[#E4EEE8] px-2 py-0.5 rounded-full">
                       {s.count} ({s.percent}%)
                     </span>
                   </div>
@@ -457,7 +457,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-red-700 mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#16382D] mb-2">
                     Recomendaciones para Catequistas:
                   </h4>
                   <ul className="text-xs text-stone-600 space-y-1.5 list-disc pl-4">
@@ -485,7 +485,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 <button
                   onClick={handleExportDocAExcel}
                   disabled={downloading !== null}
-                  className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all"
+                  className="px-4 py-2 bg-[#214C3B] hover:bg-[#16382D] text-white rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all"
                 >
                   <FileSpreadsheet className="w-4 h-4" />
                   <span>Exportar Excel Completo (.xlsx)</span>
@@ -607,7 +607,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             {/* Criterio de Selección de la Obra Definitiva */}
             <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200/70 space-y-2">
               <div className="flex items-center gap-2">
-                <HelpCircle className="w-4 h-4 text-red-600" />
+                <HelpCircle className="w-4 h-4 text-[#214C3B]" />
                 <h4 className="text-xs font-bold text-stone-900">
                   Criterio de Elección de los Tres Pilares
                 </h4>
@@ -623,7 +623,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 pb-3">
               <div>
                 <h3 className="font-serif font-bold text-base text-stone-900 flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-red-600" />
+                  <DollarSign className="w-5 h-5 text-[#214C3B]" />
                   <span>17. Presupuesto y Materiales Estimados (en Bolivianos - BOB)</span>
                 </h3>
                 <p className="text-xs text-stone-500 mt-0.5">
@@ -633,7 +633,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
 
               <button
                 onClick={() => setIsAddBudgetOpen(true)}
-                className="px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto"
+                className="px-3.5 py-2 bg-[#214C3B] hover:bg-[#16382D] text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto"
               >
                 <Plus className="w-4 h-4" />
                 <span>Agregar Partida / Insumo</span>
@@ -656,7 +656,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
 
               <div className="p-4 rounded-2xl bg-neutral-950 text-white shadow-soft">
                 <span className="text-[10px] font-bold uppercase text-neutral-300">Presupuesto Total Estimado</span>
-                <p className="text-xl font-serif font-bold text-red-400 mt-1">{totalGeneralBob} Bs.</p>
+                <p className="text-xl font-serif font-bold text-[#214C3B] mt-1">{totalGeneralBob} Bs.</p>
                 <span className="text-[11px] text-neutral-300">
                   {pendientesCotizacion > 0 ? `(${pendientesCotizacion} ítem(s) pendiente cotizar)` : 'Todas las partidas cotizadas'}
                 </span>
@@ -703,7 +703,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                         <td className="p-3">
                           <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
                             item.isCoveredByDonation 
-                              ? 'bg-red-50 text-red-700' 
+                              ? 'bg-[#E4EEE8] text-[#16382D]' 
                               : 'bg-stone-200 text-stone-800'
                           }`}>
                             {item.isCoveredByDonation ? 'Donación / Aporte' : 'Fondo Parroquial'}
@@ -713,7 +713,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                         <td className="p-3 text-center">
                           <button
                             onClick={() => handleRemoveBudgetItem(item.id)}
-                            className="text-stone-400 hover:text-red-600 transition-colors"
+                            className="text-stone-400 hover:text-[#214C3B] transition-colors"
                             title="Eliminar partida"
                           >
                             ×
@@ -789,7 +789,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
 
             <button
               onClick={() => setIsVersionModalOpen(true)}
-              className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              className="px-4 py-2 bg-[#214C3B] hover:bg-[#16382D] text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Crear Nueva Versión</span>
@@ -800,11 +800,11 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             {versions.map(v => (
               <div
                 key={v.versionId}
-                className="p-5 rounded-2xl border border-stone-200 hover:border-red-300 bg-stone-50/60 hover:bg-white transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
+                className="p-5 rounded-2xl border border-stone-200 hover:border-[#214C3B]/40 bg-stone-50/60 hover:bg-white transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-xs bg-red-50 text-red-700 px-2.5 py-0.5 rounded-full border border-red-200">
+                    <span className="font-mono font-bold text-xs bg-[#E4EEE8] text-[#16382D] px-2.5 py-0.5 rounded-full border border-[#214C3B]/20">
                       v{v.versionNumber}
                     </span>
                     <h4 className="font-bold text-sm text-stone-900">
@@ -895,7 +895,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-red-600 text-white rounded-xl text-xs font-semibold hover:bg-red-700"
+                  className="px-4 py-2 bg-[#214C3B] text-white rounded-xl text-xs font-semibold hover:bg-[#16382D]"
                 >
                   Guardar Versión
                 </button>
@@ -990,7 +990,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                   id="isDonation"
                   checked={newBudgetIsDonation}
                   onChange={e => setNewBudgetIsDonation(e.target.checked)}
-                  className="rounded text-red-600 focus:ring-red-500"
+                  className="rounded text-[#214C3B] focus:ring-[#214C3B]"
                 />
                 <label htmlFor="isDonation" className="text-xs text-stone-700">
                   Es donación comunitaria o aporte de familias (no requiere fondo parroquial)
@@ -1007,7 +1007,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-red-600 text-white rounded-xl text-xs font-semibold hover:bg-red-700"
+                  className="px-4 py-2 bg-[#214C3B] text-white rounded-xl text-xs font-semibold hover:bg-[#16382D]"
                 >
                   Agregar Insumo
                 </button>

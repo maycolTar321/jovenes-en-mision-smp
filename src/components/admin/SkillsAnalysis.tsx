@@ -51,7 +51,7 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
     <div className="space-y-8 animate-fadeIn">
       {/* Header */}
       <div className="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-soft">
-        <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#16382D] bg-[#E4EEE8] px-3 py-1 rounded-full border border-[#214C3B]/20">
           Módulo G • Diagnóstico de Capacidades
         </span>
         <h2 className="text-2xl font-serif font-bold text-neutral-900 mt-2">
@@ -124,8 +124,8 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
 
       {/* Observaciones y Sugerencias Pastorales */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasLogistics ? 'bg-red-50 border-red-200 text-red-950' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
-          {hasLogistics ? <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
+        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasLogistics ? 'bg-[#E4EEE8] border-[#214C3B]/20 text-[#16382D]' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
+          {hasLogistics ? <CheckCircle2 className="w-5 h-5 text-[#214C3B] shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
           <div>
             <h4 className="font-bold text-xs">Capacidad Logística</h4>
             <p className="text-[11px] mt-0.5">
@@ -134,8 +134,8 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
           </div>
         </div>
 
-        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasHealth ? 'bg-red-50 border-red-200 text-red-950' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
-          {hasHealth ? <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
+        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasHealth ? 'bg-[#E4EEE8] border-[#214C3B]/20 text-[#16382D]' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
+          {hasHealth ? <CheckCircle2 className="w-5 h-5 text-[#214C3B] shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
           <div>
             <h4 className="font-bold text-xs">Primeros Auxilios</h4>
             <p className="text-[11px] mt-0.5">
@@ -144,8 +144,8 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
           </div>
         </div>
 
-        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasAnimation ? 'bg-red-50 border-red-200 text-red-950' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
-          {hasAnimation ? <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
+        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasAnimation ? 'bg-[#E4EEE8] border-[#214C3B]/20 text-[#16382D]' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
+          {hasAnimation ? <CheckCircle2 className="w-5 h-5 text-[#214C3B] shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
           <div>
             <h4 className="font-bold text-xs">Animación y Música</h4>
             <p className="text-[11px] mt-0.5">

@@ -92,7 +92,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
       {/* Header & Controls */}
       <div className="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-soft flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#16382D] bg-[#E4EEE8] px-3 py-1 rounded-full border border-[#214C3B]/20">
             Módulo H • Propuesta de Equipos Mixtos
           </span>
           <h2 className="text-2xl font-serif font-bold text-neutral-900 mt-2">
@@ -144,11 +144,11 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
       {notification && (
         <div className={`p-4 rounded-xl border text-xs sm:text-sm flex items-start gap-3 animate-fadeIn ${
           notification.type === 'success' 
-            ? 'bg-red-50 border-red-200 text-red-900' 
+            ? 'bg-[#E4EEE8] border-[#214C3B]/20 text-[#16382D]' 
             : 'bg-amber-50 border-amber-200 text-amber-900'
         }`}>
           {notification.type === 'success' ? (
-            <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+            <CheckCircle2 className="w-5 h-5 text-[#214C3B] shrink-0 mt-0.5" />
           ) : (
             <Info className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
           )}
@@ -165,7 +165,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
 
       {/* Nota metodológica */}
       <div className="bg-neutral-50 p-4 rounded-2xl border border-neutral-200 text-xs text-neutral-900 flex items-start gap-3">
-        <Info className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+        <Info className="w-4 h-4 text-[#214C3B] shrink-0 mt-0.5" />
         <span>
           <strong>Criterio de sugerencia:</strong> Las cuadrillas equilibran procedencias (Parroquia, San Francisco, Santa Teresa, Juan Pablo II, etc.), edad, talentos prácticos y disponibilidad horaria. Los catequistas tienen la autoridad final de ajustar miembros mediante el selector de cada tarjeta.
         </span>
@@ -174,7 +174,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
       {/* List of Teams */}
       {teams.length === 0 ? (
         <div className="card text-center py-16">
-          <div className="w-16 h-16 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#E4EEE8] text-[#214C3B] flex items-center justify-center mx-auto mb-4">
             <Users className="w-8 h-8" />
           </div>
           <h3 className="text-lg font-serif font-bold text-stone-900">Aún no se ha sugerido una distribución de equipos</h3>
@@ -204,7 +204,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
               >
                 {/* Header del equipo */}
                 <div className={`p-4 text-white ${
-                  team.pillarId === 'corazones_en_accion' ? 'bg-red-700' :
+                  team.pillarId === 'corazones_en_accion' ? 'bg-[#16382D]' :
                   team.pillarId === 'transformadores_de_esperanza' ? 'bg-neutral-800' :
                   'bg-neutral-900'
                 }`}>
@@ -228,7 +228,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
                   {leader && (
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-1 font-bold text-neutral-900">
-                        <Star className="w-3.5 h-3.5 text-red-600 fill-red-500" /> Líder:
+                        <Star className="w-3.5 h-3.5 text-[#214C3B] fill-[#214C3B]" /> Líder:
                       </span>
                       <span className="font-medium text-stone-800 truncate max-w-[180px]">{leader.fullName}</span>
                     </div>
@@ -298,7 +298,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-stone-400" /> Sábado 08:30
                   </span>
-                  <span className="text-red-600 font-bold">
+                  <span className="text-[#214C3B] font-bold">
                     {groupsInTeam.length} grupos mixtos
                   </span>
                 </div>

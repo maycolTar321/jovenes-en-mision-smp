@@ -77,8 +77,8 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
 
         {/* Encabezado */}
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-red-50 text-red-700 border border-red-100 flex items-center justify-center mx-auto shadow-inner">
-            <ShieldCheck className="w-6 h-6 text-red-600" />
+          <div className="w-12 h-12 rounded-2xl bg-[#E4EEE8] text-[#16382D] border border-[#214C3B]/20 flex items-center justify-center mx-auto shadow-inner">
+            <ShieldCheck className="w-6 h-6 text-[#214C3B]" />
           </div>
           <h3 id="auth-modal-title" className="font-serif font-black text-xl text-neutral-900">
             Acceso restringido
@@ -90,8 +90,8 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
 
         {/* Mensaje de error si falla la autenticación */}
         {errorMessage && (
-          <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2.5 animate-fadeIn">
-            <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
+          <div className="p-3.5 rounded-xl bg-[#E4EEE8] border border-[#214C3B]/20 text-[#16382D] text-xs flex items-center gap-2.5 animate-fadeIn">
+            <AlertCircle className="w-4 h-4 shrink-0 text-[#214C3B]" />
             <span>{errorMessage}</span>
           </div>
         )}
@@ -115,7 +115,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
                   setErrorMessage(null);
                 }}
                 placeholder="Ingresa tu clave de acceso"
-                className="w-full pl-10 pr-11 py-2.5 rounded-xl border border-stone-300 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/50 disabled:opacity-60"
+                className="w-full pl-10 pr-11 py-2.5 rounded-xl border border-stone-300 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#214C3B] bg-stone-50/50 disabled:opacity-60"
               />
               <button
                 type="button"

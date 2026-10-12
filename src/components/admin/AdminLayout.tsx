@@ -96,8 +96,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   if (!isAuthenticated) {
     return (
       <div className="max-w-md mx-auto my-12 p-8 bg-white rounded-3xl border border-stone-200 shadow-elevated text-center space-y-6">
-        <div className="w-16 h-16 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mx-auto shadow-inner">
-          <ShieldCheck className="w-8 h-8 text-red-600" />
+        <div className="w-16 h-16 rounded-2xl bg-[#E4EEE8] text-[#214C3B] flex items-center justify-center mx-auto shadow-inner">
+          <ShieldCheck className="w-8 h-8 text-[#214C3B]" />
         </div>
 
         <div>
@@ -121,8 +121,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                   setPinInput(e.target.value);
                   setPinError(false);
                 }}
-                className={`w-full pl-10 pr-11 py-3 rounded-xl border text-sm text-stone-900 focus:outline-none ${
-                  pinError ? 'border-red-500 ring-2 ring-red-100' : 'border-stone-300 focus:ring-2 focus:ring-red-600'
+                className={`w-full pl-10 pr-11 py-3 rounded-xl border text-sm text-[#303632] focus:outline-none ${
+                  pinError ? 'border-[#214C3B] ring-2 ring-[#214C3B]/20' : 'border-[#737B76]/30 focus:ring-2 focus:ring-[#214C3B]'
                 }`}
               />
               <button
@@ -139,7 +139,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
               </button>
             </div>
             {pinError && (
-              <p className="text-xs text-red-600 mt-1.5 text-left font-medium">
+              <p className="text-xs text-[#214C3B] mt-1.5 text-left font-medium">
                 Contraseña incorrecta. Acceso denegado.
               </p>
             )}
@@ -201,7 +201,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shrink-0 ${
                   isActive
-                    ? 'bg-red-600 text-white shadow-sm'
+                    ? 'bg-[#214C3B] text-white shadow-sm'
                     : 'text-stone-600 hover:bg-neutral-100 hover:text-stone-900'
                 }`}
               >
@@ -216,14 +216,14 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <button
             onClick={() => setIsSettingsOpen(true)}
             title="Configuración de Backend"
-            className="p-1.5 sm:p-2 rounded-xl text-stone-600 hover:bg-stone-100 hover:text-red-600"
+            className="p-1.5 sm:p-2 rounded-xl text-stone-600 hover:bg-stone-100 hover:text-[#214C3B]"
           >
             <Settings className="w-4 h-4" />
           </button>
           <button
             onClick={handleLogout}
             title="Cerrar Sesión Administrativa"
-            className="p-2 rounded-xl text-stone-500 hover:bg-red-50 hover:text-red-600"
+            className="p-2 rounded-xl text-stone-500 hover:bg-[#E4EEE8] hover:text-[#214C3B]"
           >
             <LogOut className="w-4 h-4" />
           </button>

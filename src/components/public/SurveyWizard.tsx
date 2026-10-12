@@ -328,10 +328,10 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
     <div className="max-w-3xl w-full mx-auto bg-white rounded-2xl sm:rounded-3xl border border-stone-200/90 shadow-soft sm:shadow-elevated p-3.5 sm:p-8 transition-all">
       
       {/* Cabecera de Misión Fija y Temporizador Regresivo de 2 Minutos */}
-      <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 mb-4 pb-2.5 border-b border-stone-100">
+      <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 mb-4 pb-2.5 border-b border-[#737B76]/15">
         <div className="flex items-center gap-1.5 min-w-0">
-          <span className="text-[11px] sm:text-xs px-2.5 py-1 rounded-full font-bold bg-neutral-900 text-red-400 shadow-xs border border-neutral-700 flex items-center gap-1.5 truncate">
-            <Sparkles className="w-3 h-3 text-red-400 shrink-0" />
+          <span className="text-[11px] sm:text-xs px-2.5 py-1 rounded-full font-bold bg-[#E4EEE8] text-[#214C3B] shadow-xs border border-[#214C3B]/20 flex items-center gap-1.5 truncate">
+            <Sparkles className="w-3 h-3 text-[#214C3B] shrink-0" />
             <span className="truncate">Misión: {currentPillarInfo.title}</span>
           </span>
         </div>
@@ -340,10 +340,10 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
         <div className="flex items-center gap-2 shrink-0">
           <div className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-colors ${
             timeLeftSeconds <= 30
-              ? 'bg-red-100 text-red-700 border border-red-300 animate-pulse'
-              : 'bg-neutral-100 text-neutral-900 border border-neutral-300'
+              ? 'bg-[#E4EEE8] text-[#16382D] border border-[#214C3B] animate-pulse font-black'
+              : 'bg-[#F1F3F1] text-[#303632] border border-[#737B76]/25'
           }`}>
-            <Clock className={`w-3 h-3 ${timeLeftSeconds <= 30 ? 'text-red-600' : 'text-neutral-600'}`} />
+            <Clock className={`w-3 h-3 ${timeLeftSeconds <= 30 ? 'text-[#214C3B]' : 'text-[#737B76]'}`} />
             <span>Tiempo: {formatTimer(timeLeftSeconds)}</span>
           </div>
         </div>
@@ -351,18 +351,18 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
       {/* Barra de progreso fluida (1 pregunta por pantalla) */}
       <div className="mb-5 sm:mb-8">
-        <div className="flex items-center justify-between text-[11px] sm:text-xs font-bold text-stone-600 uppercase tracking-wider mb-1.5">
+        <div className="flex items-center justify-between text-[11px] sm:text-xs font-bold text-[#737B76] uppercase tracking-wider mb-1.5">
           <span className="truncate pr-2">
             {currentStepIndex === 0 && 'Identificación y Grupo'}
             {currentStepIndex >= 1 && currentStepIndex <= 5 && `P ${currentStepIndex}/7 • ${currentPillarInfo.title}`}
             {currentStepIndex === 6 && 'P 6/7 • Disponibilidad'}
             {currentStepIndex === 7 && 'P 7/7 • Continuidad'}
           </span>
-          <span className="text-red-600 font-extrabold shrink-0">{progressPercent}%</span>
+          <span className="text-[#214C3B] font-extrabold shrink-0">{progressPercent}%</span>
         </div>
-        <div className="w-full h-2 sm:h-2.5 bg-stone-100 rounded-full overflow-hidden">
+        <div className="w-full h-2 sm:h-2.5 bg-[#F1F3F1] rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-neutral-900 via-red-600 to-red-500 transition-all duration-500 rounded-full"
+            className="h-full bg-gradient-to-r from-[#16382D] to-[#214C3B] transition-all duration-500 rounded-full"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -370,8 +370,8 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
       {/* Alerta de error si existe */}
       {validationError && (
-        <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm flex items-start gap-2.5 animate-fadeIn">
-          <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 shrink-0 mt-0.5" />
+        <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-[#F1F3F1] border border-[#214C3B]/30 text-[#303632] text-xs sm:text-sm flex items-start gap-2.5 animate-fadeIn">
+          <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#214C3B] shrink-0 mt-0.5" />
           <span>{validationError}</span>
         </div>
       )}
@@ -381,23 +381,23 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
       {/* ============================================================ */}
       {currentStepIndex === 0 && (
         <div className="space-y-4 sm:space-y-6 animate-fadeIn">
-          <div className="bg-gradient-to-r from-neutral-900 to-neutral-800 p-3.5 sm:p-5 rounded-xl sm:rounded-2xl text-white shadow-xs flex items-start gap-3">
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 shrink-0 mt-0.5" />
+          <div className="bg-[#E4EEE8] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl text-[#303632] border border-[#214C3B]/20 shadow-xs flex items-start gap-3">
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-[#214C3B] shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-serif font-bold text-white text-sm sm:text-base">
+              <h3 className="font-serif font-bold text-[#214C3B] text-sm sm:text-base">
                 ¡Bienvenido a tu Encuesta de Confirmación!
               </h3>
-              <p className="text-[11px] sm:text-xs text-neutral-300 mt-0.5 leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-[#737B76] mt-0.5 leading-relaxed">
                 Selecciona tu Grupo de Confirmación (1 al 7) y escribe tu nombre completo para comenzar tu misión pastoral.
               </p>
             </div>
           </div>
 
-          <div className="bg-white p-3.5 sm:p-6 rounded-xl sm:rounded-2xl border border-stone-200 shadow-soft space-y-4">
+          <div className="bg-white p-3.5 sm:p-6 rounded-xl sm:rounded-2xl border border-[#737B76]/20 shadow-soft space-y-4">
             {/* 1. SELECCIÓN DE GRUPO (1 AL 7) */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-900 mb-1.5 flex items-center gap-1.5">
-                <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-600" />
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#303632] mb-1.5 flex items-center gap-1.5">
+                <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#214C3B]" />
                 <span>1. Selecciona tu Grupo de Confirmación (2° Año) *</span>
               </label>
               <select
@@ -406,7 +406,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   setParticipantGroup(e.target.value as ConfirmationGroup);
                   setValidationError(null);
                 }}
-                className="w-full px-3.5 py-3 rounded-xl border border-stone-300 text-xs sm:text-sm font-semibold text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50"
+                className="w-full px-3.5 py-3 rounded-xl border border-[#737B76]/30 text-xs sm:text-sm font-semibold text-[#303632] focus:ring-2 focus:ring-[#214C3B] focus:outline-none bg-[#F1F3F1]/50"
               >
                 <option value="">-- Toca aquí y elige tu grupo (1 al 7) --</option>
                 {CONFIRMATION_GROUPS.map(grp => (
@@ -417,8 +417,8 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
             {/* 2. NOMBRE DEL CONFIRMANDO */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-900 mb-2 flex items-center gap-1.5">
-                <User className="w-4 h-4 text-red-600" />
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#303632] mb-2 flex items-center gap-1.5">
+                <User className="w-4 h-4 text-[#214C3B]" />
                 <span>2. Tu Nombre y Apellido *</span>
               </label>
               <input
@@ -430,14 +430,14 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   setParticipantName(e.target.value);
                   setValidationError(null);
                 }}
-                className="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm font-semibold text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50 placeholder:text-stone-400"
+                className="w-full px-4 py-3 rounded-xl border border-[#737B76]/30 text-sm font-semibold text-[#303632] focus:ring-2 focus:ring-[#214C3B] focus:outline-none bg-[#F1F3F1]/50 placeholder:text-[#737B76]"
               />
             </div>
 
             {/* 3. TELÉFONO OPCIONAL */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#737B76] mb-1">
                   Celular o WhatsApp (Opcional)
                 </label>
                 <input
@@ -445,12 +445,12 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   placeholder="Ej: 71829304"
                   value={participantPhone}
                   onChange={e => setParticipantPhone(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-800 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#737B76]/30 text-xs sm:text-sm text-[#303632] focus:ring-2 focus:ring-[#214C3B] focus:outline-none bg-[#F1F3F1]/50"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#737B76] mb-1">
                   Edad
                 </label>
                 <input
@@ -459,23 +459,23 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   max={25}
                   value={participantAge}
                   onChange={e => setParticipantAge(parseInt(e.target.value) || 16)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-800 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#737B76]/30 text-xs sm:text-sm text-[#303632] focus:ring-2 focus:ring-[#214C3B] focus:outline-none bg-[#F1F3F1]/50"
                 />
               </div>
             </div>
 
             {/* Previsualización del Código Exclusivo */}
             {participantGroup && participantName.trim().length >= 3 && (
-              <div className="p-4 rounded-xl bg-red-50/80 border border-red-200 flex items-center justify-between animate-fadeIn">
+              <div className="p-4 rounded-xl bg-[#E4EEE8] border border-[#214C3B]/20 flex items-center justify-between animate-fadeIn">
                 <div className="space-y-0.5">
-                  <span className="text-[11px] font-bold text-neutral-700 uppercase tracking-wider block">
+                  <span className="text-[11px] font-bold text-[#737B76] uppercase tracking-wider block">
                     Tu Código Exclusivo de Misión (Automático):
                   </span>
-                  <span className="font-mono font-bold text-neutral-900 text-sm sm:text-base">
+                  <span className="font-mono font-bold text-[#214C3B] text-sm sm:text-base">
                     {accessCodeInput || generateExclusiveCode(participantGroup, participantName)}
                   </span>
                 </div>
-                <span className="px-2.5 py-1 rounded-lg bg-neutral-900 text-red-400 text-[10px] font-bold tracking-wider uppercase">
+                <span className="px-2.5 py-1 rounded-lg bg-[#214C3B] text-white text-[10px] font-bold tracking-wider uppercase">
                   Exclusivo
                 </span>
               </div>
@@ -500,27 +500,27 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
             {/* Cabecera de la pregunta */}
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-neutral-100 text-neutral-800 border border-neutral-200 uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#E4EEE8] text-[#214C3B] border border-[#214C3B]/20 uppercase tracking-wider">
                   Pregunta {currentStepIndex} de 7
                 </span>
                 {q.required && (
-                  <span className="text-xs font-semibold text-red-600">
+                  <span className="text-xs font-semibold text-[#214C3B]">
                     * Obligatoria
                   </span>
                 )}
                 {isSelectedMultiple && (
-                  <span className="text-xs font-medium text-stone-500 italic">
+                  <span className="text-xs font-medium text-[#737B76] italic">
                     (Puedes elegir hasta {q.maxSelections || 4} opciones)
                   </span>
                 )}
               </div>
 
-              <h3 className="font-serif font-black text-lg sm:text-xl text-neutral-900 leading-snug">
+              <h3 className="font-serif font-black text-lg sm:text-xl text-[#303632] leading-snug">
                 {q.question}
               </h3>
 
               {q.description && (
-                <p className="text-xs sm:text-sm text-stone-600 italic">
+                <p className="text-xs sm:text-sm text-[#737B76] italic">
                   {q.description}
                 </p>
               )}
@@ -540,15 +540,15 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                     onClick={() => handleOptionSelect(q.id, opt.id, isSelectedMultiple, q.maxSelections || 4)}
                     className={`w-full text-left p-3 sm:p-4.5 rounded-xl sm:rounded-2xl border-2 transition-all flex items-start gap-3 ${
                       isSelected
-                        ? 'border-red-600 bg-red-50/60 shadow-xs ring-1 sm:ring-2 ring-red-600/20'
-                        : 'border-stone-200 hover:border-red-300 hover:bg-stone-50 bg-white'
+                        ? 'border-[#214C3B] bg-[#E4EEE8]/40 shadow-xs ring-1 sm:ring-2 ring-[#214C3B]/20'
+                        : 'border-[#737B76]/20 hover:border-[#214C3B]/40 hover:bg-[#F1F3F1] bg-white'
                     }`}
                   >
                     {/* Indicador de selección */}
                     <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-${isSelectedMultiple ? 'md' : 'full'} border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                       isSelected
-                        ? 'border-red-600 bg-red-600 text-white'
-                        : 'border-stone-300 bg-white'
+                        ? 'border-[#214C3B] bg-[#214C3B] text-white'
+                        : 'border-[#737B76]/30 bg-white'
                     }`}>
                       {isSelected && (
                         isSelectedMultiple ? (
@@ -561,19 +561,19 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
                     <div className="flex-1 space-y-0.5">
                       <span className={`text-xs sm:text-sm md:text-base font-bold block ${
-                        isSelected ? 'text-neutral-900' : 'text-stone-800'
+                        isSelected ? 'text-[#214C3B]' : 'text-[#303632]'
                       }`}>
                         {opt.label}
                       </span>
                       {opt.helper && (
-                        <p className="text-[11px] sm:text-xs text-stone-600 leading-normal">
+                        <p className="text-[11px] sm:text-xs text-[#737B76] leading-normal">
                           {opt.helper}
                         </p>
                       )}
                     </div>
 
                     {isSelected && (
-                      <span className="text-[11px] sm:text-xs font-bold text-red-600 shrink-0 hidden sm:inline-block">
+                      <span className="text-[11px] sm:text-xs font-bold text-[#214C3B] shrink-0 hidden sm:inline-block">
                         Seleccionado
                       </span>
                     )}
@@ -636,17 +636,17 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto p-4 sm:p-7 shadow-2xl border border-stone-200 space-y-4 sm:space-y-6 animate-fadeIn"
+            className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto p-4 sm:p-7 shadow-2xl border border-[#737B76]/20 space-y-4 sm:space-y-6 animate-fadeIn"
           >
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="p-2 sm:p-3 bg-red-100 text-red-600 rounded-xl sm:rounded-2xl shrink-0">
-                <AlertCircle className="w-6 h-6 sm:w-7 sm:h-7 text-red-600" />
+              <div className="p-2 sm:p-3 bg-[#E4EEE8] text-[#214C3B] rounded-xl sm:rounded-2xl shrink-0">
+                <AlertCircle className="w-6 h-6 sm:w-7 sm:h-7 text-[#214C3B]" />
               </div>
               <div className="space-y-1 sm:space-y-2">
-                <h3 id="confirm-modal-title" className="font-serif font-extrabold text-base sm:text-xl text-stone-900 leading-snug">
+                <h3 id="confirm-modal-title" className="font-serif font-extrabold text-base sm:text-xl text-[#303632] leading-snug">
                   ¿ESTÁS SEGURO DE FINALIZAR TU ENCUESTA?
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-sans">
+                <p className="text-xs sm:text-sm text-[#737B76] leading-relaxed font-sans">
                   Revisa tus respuestas antes de confirmar. Al guardar la encuesta, tu participación quedará registrada y no podrás modificarla desde esta pantalla. Si necesitas corregir algún dato después, solicita ayuda a la coordinación.
                 </p>
               </div>
@@ -654,13 +654,13 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
             {/* Notificación de error si falló el guardado */}
             {submissionError && (
-              <div className="p-3 sm:p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm space-y-1.5 animate-fadeIn">
-                <div className="flex items-center gap-2 font-bold text-red-700">
+              <div className="p-3 sm:p-4 rounded-xl bg-[#F1F3F1] border border-[#214C3B]/30 text-[#303632] text-xs sm:text-sm space-y-1.5 animate-fadeIn">
+                <div className="flex items-center gap-2 font-bold text-[#214C3B]">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>No se pudo confirmar el guardado</span>
                 </div>
-                <p className="text-xs text-red-800 leading-relaxed">{submissionError}</p>
-                <p className="text-[11px] text-stone-600">
+                <p className="text-xs text-[#737B76] leading-relaxed">{submissionError}</p>
+                <p className="text-[11px] text-[#737B76]">
                   Tus respuestas siguen disponibles. Intenta nuevamente.
                 </p>
               </div>
@@ -668,8 +668,8 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
             {/* Indicador de progreso de guardado */}
             {isSubmitting && (
-              <div className="p-3 sm:p-4 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-900 text-xs flex items-center gap-3">
-                <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-red-600 border-t-transparent rounded-full animate-spin shrink-0" />
+              <div className="p-3 sm:p-4 rounded-xl bg-[#E4EEE8] border border-[#214C3B]/20 text-[#214C3B] text-xs flex items-center gap-3">
+                <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-[#214C3B] border-t-transparent rounded-full animate-spin shrink-0" />
                 <span className="font-medium">
                   Guardando tu encuesta…
                 </span>
@@ -677,7 +677,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
             )}
 
             {/* Botones del diálogo */}
-            <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-2.5 pt-3 border-t border-stone-200">
+            <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-2.5 pt-3 border-t border-[#737B76]/20">
               <button
                 type="button"
                 disabled={isSubmitting}
@@ -687,7 +687,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                     setSubmissionError(null);
                   }
                 }}
-                className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-stone-300 text-stone-700 hover:bg-stone-100 text-xs sm:text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-[#737B76]/30 text-[#303632] hover:bg-[#F1F3F1] text-xs sm:text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 VOLVER A REVISAR
               </button>
@@ -696,7 +696,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                 type="button"
                 disabled={isSubmitting}
                 onClick={handleConfirmAndSave}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#214C3B] hover:bg-[#16382D] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -721,16 +721,16 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
           role="dialog"
           aria-modal="true"
         >
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border-2 border-red-300 text-center space-y-5 animate-fadeIn">
-            <div className="w-16 h-16 rounded-full bg-red-100 text-red-700 flex items-center justify-center mx-auto">
-              <Clock className="w-8 h-8 text-red-600 animate-pulse" />
+          <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border-2 border-[#214C3B]/30 text-center space-y-5 animate-fadeIn">
+            <div className="w-16 h-16 rounded-full bg-[#E4EEE8] text-[#214C3B] flex items-center justify-center mx-auto">
+              <Clock className="w-8 h-8 text-[#214C3B] animate-pulse" />
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-serif font-black text-xl text-neutral-900">
+              <h3 className="font-serif font-black text-xl text-[#303632]">
                 ¡El tiempo de 2 minutos ha finalizado!
               </h3>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#737B76] leading-relaxed">
                 El tiempo asignado para completar la encuesta terminó. Para asegurar la igualdad entre todos los grupos, la sesión se ha cerrado.
               </p>
             </div>

@@ -39,7 +39,7 @@ const SHEET_NAMES = {
 
 // SAL DE HASH PARA CONTRASEÑAS Y TOKENS (No contraseñas en texto plano)
 const SECURITY_SALT = 'SMP_TARIJA_2026_CONFIRMACION_SALT_SECURE_KEY';
-const DEFAULT_PIN_HASH = 'fa2459bb5f72cb9d750fa0f55cf5eb08779c4bebf69c6fc96085a85514f77c86'; // sha256(SALT + "smp2026")
+const DEFAULT_PIN_HASH = 'c100ba3126b2a9d5b7d4f5b782c720a1a0206b1c22a647fe4de2df8a76095845'; // sha256(SALT + "admin5230")
 
 /**
  * ============================================================================
@@ -185,7 +185,7 @@ function doPost(e) {
     // 1. Inicialización de las 8 Hojas
     if (action === 'initSheets') {
       const token = data.adminToken || '';
-      if (!verifyAdminToken(token) && data.pin !== 'smp2026') {
+      if (!verifyAdminToken(token) && data.pin !== 'admin5230') {
         return jsonResponse({ status: 'error', success: false, message: 'No autorizado para inicializar hojas' });
       }
       return jsonResponse(setupAllSheets());
@@ -818,7 +818,7 @@ function authenticateAdmin(pin) {
 
   const storedHash = getStoredPasswordHash();
 
-  if (hashedInput === storedHash || cleanPin === 'smp2026') {
+  if (hashedInput === storedHash || cleanPin === 'admin5230') {
     const expiry = Date.now() + (12 * 60 * 60 * 1000);
     const tokenPayload = 'SMP_ADMIN_' + expiry;
     const signature = hashPassword(tokenPayload);

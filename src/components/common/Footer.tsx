@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-neutral-400 mb-3 leading-relaxed">
               Sistema pastoral para investigar, planificar, ejecutar y evaluar la obra social post-retiro de Confirmación.
             </p>
-            <p className="text-xs text-red-400 font-serif italic flex items-center gap-1.5">
+            <p className="text-xs text-[#214C3B] font-serif italic flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               "{APP_INFO.motto}"
             </p>
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="text-sm space-y-2 text-neutral-400">
               <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#214C3B] shrink-0 mt-0.5" />
                 <span>{APP_INFO.parish}</span>
               </li>
               <li className="ml-6 text-xs text-neutral-400">
@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-3">
           <p>© 2026 {APP_INFO.parish}. Todos los derechos reservados.</p>
           <p className="flex items-center gap-1 text-neutral-300">
-            Hecho con <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> para la comunidad juvenil de Tarija
+            Hecho con <Heart className="w-3.5 h-3.5 text-[#214C3B] fill-[#214C3B]" /> para la comunidad juvenil de Tarija
           </p>
         </div>
       </div>

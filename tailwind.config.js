@@ -7,72 +7,84 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Rojo institucional principal del logo y la identidad (#D71920)
-        brand: {
-          50: '#FEF2F2',
-          100: '#FEE2E2',
-          200: '#FECACA',
-          300: '#FCA5A5',
-          400: '#F87171',
-          500: '#EF4444',
-          600: '#D71920', // Rojo primario oficial
-          700: '#B91C1C',
-          800: '#991B1B',
-          900: '#7F1D1D',
-          950: '#450A0A',
-        },
-        // Mapeo de forest a Carbón / Negro / Gris (cero verde)
+        // Verde bosque (#214C3B), profundo (#16382D), suave (#E4EEE8)
         forest: {
-          50: '#F9FAFB',
-          100: '#F3F4F6', // Gris claro
-          200: '#E5E7EB',
-          300: '#D1D5DB',
-          400: '#9CA3AF', // Gris medio
-          500: '#6B7280',
-          600: '#4B5563',
-          700: '#374151',
-          800: '#262626', // Carbón
-          900: '#171717', // Negro carbón (#171717)
-          950: '#0A0A0A', // Negro profundo
+          50: '#F1F3F1',   // Gris claro (#F1F3F1)
+          100: '#E4EEE8',  // Verde suave (#E4EEE8)
+          200: '#C9DCD2',
+          300: '#A3C4B3',
+          400: '#6FA48C',
+          500: '#3D7A61',
+          600: '#214C3B',  // Verde bosque principal (#214C3B)
+          700: '#1B4032',
+          800: '#16382D',  // Verde profundo (#16382D)
+          900: '#102A22',
+          950: '#0A1C16',
         },
-        // Mapeo de cream a Blanco y Gris claro
+        // Mapeo institucional brand para compatibilidad
+        brand: {
+          50: '#F1F3F1',
+          100: '#E4EEE8',
+          200: '#C9DCD2',
+          300: '#A3C4B3',
+          400: '#6FA48C',
+          500: '#3D7A61',
+          600: '#214C3B',  // Verde bosque
+          700: '#16382D',  // Verde profundo
+          800: '#102A22',
+          900: '#0A1C16',
+          950: '#06130F',
+        },
+        // Gris carbón (#303632), Gris medio (#737B76), Gris claro (#F1F3F1)
+        carbon: {
+          50: '#F7F8F7',
+          100: '#F1F3F1',  // Gris claro
+          200: '#E1E4E2',
+          300: '#C3C8C5',
+          400: '#A0A7A3',
+          500: '#737B76',  // Gris medio
+          600: '#545B56',
+          700: '#3E4440',
+          800: '#303632',  // Gris carbón (#303632)
+          900: '#222724',
+          950: '#151917',
+        },
+        // Superficies limpias
         cream: {
-          50: '#FFFFFF',  // Blanco puro
-          100: '#F9FAFB',
-          200: '#F3F4F6', // Gris claro (#F3F4F6)
-          300: '#E5E7EB',
-          400: '#D1D5DB',
-          500: '#9CA3AF',
+          50: '#FFFFFF',
+          100: '#F7F8F7',
+          200: '#F1F3F1',
+          300: '#E1E4E2',
+          400: '#C3C8C5',
+          500: '#737B76',
           DEFAULT: '#FFFFFF',
-          paper: '#F9FAFB',
+          paper: '#F1F3F1',
           card: '#FFFFFF',
-          dark: '#E5E7EB',
+          dark: '#E1E4E2',
         },
-        // Mapeo de terracotta al Rojo institucional
         terracotta: {
-          50: '#FEF2F2',
-          100: '#FEE2E2',
-          200: '#FECACA',
-          300: '#FCA5A5',
-          400: '#F87171',
-          500: '#EF4444',
-          600: '#D71920', // Rojo
-          700: '#B91C1C',
-          800: '#991B1B',
-          900: '#7F1D1D',
+          50: '#F1F3F1',
+          100: '#E4EEE8',
+          200: '#C9DCD2',
+          300: '#A3C4B3',
+          400: '#6FA48C',
+          500: '#3D7A61',
+          600: '#214C3B',
+          700: '#16382D',
+          800: '#102A22',
+          900: '#0A1C16',
         },
-        // Acentos dorados o ámbar de la cruz
         gold: {
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#D71920', // Rojo para botones destacados
-          600: '#B91C1C',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
+          50: '#F1F3F1',
+          100: '#E4EEE8',
+          200: '#C9DCD2',
+          300: '#A3C4B3',
+          400: '#6FA48C',
+          500: '#214C3B',
+          600: '#16382D',
+          700: '#102A22',
+          800: '#0A1C16',
+          900: '#06130F',
         },
       },
       fontFamily: {
@@ -80,8 +92,8 @@ export default {
         serif: ['Merriweather', 'Georgia', 'serif'],
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.06)',
-        'elevated': '0 10px 30px -5px rgba(0, 0, 0, 0.12)',
+        'soft': '0 4px 20px -2px rgba(33, 76, 59, 0.05)',
+        'elevated': '0 10px 30px -5px rgba(22, 56, 45, 0.10)',
       }
     },
   },
