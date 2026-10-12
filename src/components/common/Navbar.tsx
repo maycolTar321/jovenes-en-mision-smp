@@ -28,17 +28,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onOpe
               />
             </div>
             <div className="min-w-0 flex-1">
-              <span className="text-[9px] sm:text-[10px] text-red-400 font-bold tracking-widest uppercase truncate block">
-                {APP_INFO.parish}
+              <span className="text-[9px] sm:text-[11px] text-red-400 font-bold tracking-widest uppercase truncate block">
+                {APP_INFO.parish} • Tarija
               </span>
-              <div className="flex items-center gap-1.5">
-                <span className="font-serif font-black text-sm sm:text-base md:text-lg tracking-tight text-white leading-tight truncate">
-                  {APP_INFO.name}
-                </span>
-                <span className="hidden md:inline-block px-1.5 py-0.2 text-[9px] uppercase font-bold tracking-wider bg-red-600/20 text-red-300 rounded border border-red-500/40">
-                  Tarija
-                </span>
-              </div>
+              <span className="font-serif font-black text-sm sm:text-base md:text-lg tracking-tight text-white leading-tight truncate block">
+                {APP_INFO.name}
+              </span>
               <p className="text-[10px] sm:text-xs text-neutral-300 font-light truncate flex items-center gap-1 mt-0.5">
                 <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-500 shrink-0" />
                 <span className="italic tracking-wide">{APP_INFO.motto}</span>

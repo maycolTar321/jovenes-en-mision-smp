@@ -42,19 +42,9 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
           
-          {/* Bloque Destacado de Parroquia y Logo Oficial */}
-          <div className="flex flex-col items-center justify-center gap-3 sm:gap-4">
-            {/* Logo Oficial con marco blanco nítido y sombra */}
-            <div className="p-1.5 sm:p-2 rounded-2xl sm:rounded-3xl bg-white shadow-2xl border-2 border-red-600/30 hover:scale-105 transition-transform duration-300">
-              <img
-                src="/logo.png"
-                alt="Logo Catequistas San Martín de Porres"
-                className="w-20 h-20 sm:w-28 sm:h-28 object-contain"
-              />
-            </div>
-
-            {/* Encabezado Institucional Destacado de la Parroquia */}
-            <div className="space-y-1 max-w-2xl px-1">
+          {/* Bloque Destacado de Parroquia */}
+          <div className="flex flex-col items-center justify-center gap-2">
+            <div className="space-y-1.5 max-w-2xl px-1">
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-red-500 block">
                 Comunidad Eclesial & Pastoral Juvenil
               </span>
