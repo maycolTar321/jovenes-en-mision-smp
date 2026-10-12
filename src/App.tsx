@@ -6,10 +6,13 @@ import { Footer } from './components/common/Footer';
 import { BottomMobileNav } from './components/common/BottomMobileNav';
 import { PublicPage } from './pages/PublicPage';
 import { AdminPage } from './pages/AdminPage';
+import { AdminAuthModal } from './components/admin/AdminAuthModal';
+import { authService } from './services/authService';
 
 export function App() {
   const [currentView, setCurrentView] = useState<'public' | 'admin'>('public');
   const [publicSubView, setPublicSubView] = useState<'hero' | 'survey' | 'pillars'>('hero');
+  const [isAdminAuthModalOpen, setIsAdminAuthModalOpen] = useState<boolean>(false);
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [teams, setTeams] = useState<MixedTeam[]>([]);
   const [project, setProject] = useState<SocialProjectTracking>(storageService.getProjectTracking());
@@ -75,16 +78,39 @@ export function App() {
     }, 100);
   };
 
-  const handleMobileGoAdmin = () => {
+  const handleOpenAdmin = () => {
+    if (authService.isAuthenticated()) {
+      setCurrentView('admin');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setIsAdminAuthModalOpen(true);
+    }
+  };
+
+  const handleAdminAuthSuccess = () => {
+    setIsAdminAuthModalOpen(false);
     setCurrentView('admin');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleExitAdmin = () => {
+    authService.logout();
+    setCurrentView('public');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-cream-50 text-stone-800 pb-16 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 pb-16 md:pb-0">
       <Navbar
         currentView={currentView}
-        onViewChange={setCurrentView}
+        onViewChange={(view) => {
+          if (view === 'admin') handleOpenAdmin();
+          else {
+            setCurrentView('public');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }}
+        onOpenAdminAuth={handleOpenAdmin}
         surveyCount={participants.length}
       />
 
@@ -109,7 +135,7 @@ export function App() {
             onConfigSaved={setConfig}
             onResetData={handleResetData}
             onRefresh={loadData}
-            onExitAdmin={() => setCurrentView('public')}
+            onExitAdmin={handleExitAdmin}
           />
         )}
       </main>
@@ -122,8 +148,16 @@ export function App() {
         onNavigateHome={handleMobileGoHome}
         onNavigateSurvey={handleMobileGoSurvey}
         onNavigatePillars={handleMobileGoPillars}
-        onNavigateAdmin={handleMobileGoAdmin}
+        onNavigateAdmin={handleOpenAdmin}
         surveyCount={participants.length}
+      />
+
+      {/* Modal de Acceso Restringido */}
+      <AdminAuthModal
+        isOpen={isAdminAuthModalOpen}
+        config={config}
+        onSuccess={handleAdminAuthSuccess}
+        onClose={() => setIsAdminAuthModalOpen(false)}
       />
     </div>
   );

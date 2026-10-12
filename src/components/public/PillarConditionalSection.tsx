@@ -71,20 +71,20 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
   const isTransformadores = primaryPillar === 'transformadores_de_esperanza';
 
   return (
-    <div className="bg-cream-100/70 border border-cream-300 rounded-3xl p-6 sm:p-8 space-y-6 animate-fadeIn shadow-sm">
+    <div className="bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-8 space-y-6 animate-fadeIn shadow-sm">
       
       {/* Cabecera del Cuestionario Condicional */}
-      <div className="flex items-center gap-3.5 pb-4 border-b border-cream-300">
+      <div className="flex items-center gap-3.5 pb-4 border-b border-neutral-200">
         <div className={`p-3 rounded-2xl text-white shadow-sm ${
-          isCasaComun ? 'bg-forest-800' :
-          isCorazones ? 'bg-terracotta-600' : 'bg-gold-600 text-stone-950'
+          isCasaComun ? 'bg-red-600' :
+          isCorazones ? 'bg-red-600' : 'bg-neutral-900 text-white'
         }`}>
           {isCasaComun && <Sprout className="w-6 h-6" />}
           {isCorazones && <HeartHandshake className="w-6 h-6" />}
           {isTransformadores && <Sparkles className="w-6 h-6" />}
         </div>
         <div>
-          <span className="text-[11px] uppercase font-bold tracking-wider text-terracotta-700 block">
+          <span className="text-[11px] uppercase font-bold tracking-wider text-red-600 block">
             Cuestionario Específico Condicional
           </span>
           <h3 className="text-xl sm:text-2xl font-serif font-extrabold text-stone-900">
@@ -120,12 +120,12 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                     onClick={() => updateCasaComun('actionType', opt)}
                     className={`text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all flex items-start justify-between ${
                       isSelected
-                        ? 'border-forest-800 bg-forest-50 text-forest-950 font-bold ring-2 ring-forest-200'
+                        ? 'border-red-600 bg-red-50 text-red-950 font-bold ring-2 ring-red-200'
                         : 'border-stone-200 bg-white hover:bg-stone-50 text-stone-700'
                     }`}
                   >
                     <span>{opt}</span>
-                    {isSelected && <Check className="w-4 h-4 text-forest-800 shrink-0 mt-0.5" />}
+                    {isSelected && <Check className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />}
                   </button>
                 );
               })}
@@ -145,8 +145,8 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                     onClick={() => updateCasaComun('physicalComfort', lvl)}
                     className={`w-11 h-11 rounded-xl text-xs font-bold flex items-center justify-center transition-all ${
                       (answers.casaComun?.physicalComfort || 4) === lvl
-                        ? 'bg-forest-800 text-white shadow-md scale-105'
-                        : 'bg-white border border-stone-300 text-stone-700 hover:bg-cream-100'
+                        ? 'bg-red-600 text-white shadow-md scale-105'
+                        : 'bg-white border border-stone-300 text-stone-700 hover:bg-neutral-100'
                     }`}
                   >
                     {lvl}★
@@ -175,7 +175,7 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                       }}
                       className={`p-2 rounded-lg border text-center transition-all ${
                         isChecked
-                          ? 'bg-forest-700 text-white font-bold'
+                          ? 'bg-red-600 text-white font-bold'
                           : 'bg-white border-stone-200 text-stone-700'
                       }`}
                     >
@@ -196,7 +196,7 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
               value={answers.casaComun?.proposedProject || ''}
               onChange={e => updateCasaComun('proposedProject', e.target.value)}
               placeholder="Ej: Plantar especies nativas como lapachos o tipas, colocar carteles sobre el cuidado del agua en la quebrada..."
-              className="w-full p-3.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-forest-600 focus:outline-none"
+              className="w-full p-3.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-red-600 focus:outline-none"
             />
           </div>
         </div>
@@ -226,12 +226,12 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                     onClick={() => updateCorazones('serviceTarget', opt)}
                     className={`text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all flex items-start justify-between ${
                       isSelected
-                        ? 'border-terracotta-600 bg-terracotta-50 text-terracotta-950 font-bold ring-2 ring-terracotta-200'
+                        ? 'border-red-600 bg-red-50 text-red-950 font-bold ring-2 ring-red-200'
                         : 'border-stone-200 bg-white hover:bg-stone-50 text-stone-700'
                     }`}
                   >
                     <span>{opt}</span>
-                    {isSelected && <Check className="w-4 h-4 text-terracotta-600 shrink-0 mt-0.5" />}
+                    {isSelected && <Check className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />}
                   </button>
                 );
               })}
@@ -251,8 +251,8 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                     onClick={() => updateCorazones('patienceLevel', lvl)}
                     className={`w-11 h-11 rounded-xl text-xs font-bold flex items-center justify-center transition-all ${
                       (answers.corazonesEnAccion?.patienceLevel || 5) === lvl
-                        ? 'bg-terracotta-600 text-white shadow-md scale-105'
-                        : 'bg-white border border-stone-300 text-stone-700 hover:bg-cream-100'
+                        ? 'bg-red-600 text-white shadow-md scale-105'
+                        : 'bg-white border border-stone-300 text-stone-700 hover:bg-neutral-100'
                     }`}
                   >
                     {lvl}★
@@ -268,7 +268,7 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
               <select
                 value={answers.corazonesEnAccion?.interactionType || 'Escucha atenta y diálogo'}
                 onChange={e => updateCorazones('interactionType', e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-terracotta-500 focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-red-600 focus:outline-none"
               >
                 <option value="Escucha atenta y diálogo">Escucha atenta y diálogo</option>
                 <option value="Música, serenata o dinámicas con guitarra">Música, serenata o canto</option>
@@ -288,7 +288,7 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
               value={answers.corazonesEnAccion?.proposedActivity || ''}
               onChange={e => updateCorazones('proposedActivity', e.target.value)}
               placeholder="Ej: Escuchar sus historias con cariño, cantar canciones del folklore tarijeño, organizar una tarde de juegos tradicionales..."
-              className="w-full p-3.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-terracotta-500 focus:outline-none"
+              className="w-full p-3.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-red-600 focus:outline-none"
             />
           </div>
         </div>
@@ -318,12 +318,12 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                     onClick={() => updateTransformadores('actionArea', opt)}
                     className={`text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all flex items-start justify-between ${
                       isSelected
-                        ? 'border-gold-600 bg-gold-50 text-stone-900 font-bold ring-2 ring-gold-300'
+                        ? 'border-red-600 bg-red-50 text-neutral-900 font-bold ring-2 ring-red-200'
                         : 'border-stone-200 bg-white hover:bg-stone-50 text-stone-700'
                     }`}
                   >
                     <span>{opt}</span>
-                    {isSelected && <Check className="w-4 h-4 text-gold-700 shrink-0 mt-0.5" />}
+                    {isSelected && <Check className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />}
                   </button>
                 );
               })}
@@ -351,7 +351,7 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                       }}
                       className={`p-2 rounded-lg border text-center transition-all ${
                         isChecked
-                          ? 'bg-gold-500 text-stone-950 font-bold'
+                          ? 'bg-neutral-900 text-white font-bold'
                           : 'bg-white border-stone-200 text-stone-700'
                       }`}
                     >
@@ -382,7 +382,7 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
                       }}
                       className={`p-2 rounded-lg border text-center transition-all ${
                         isChecked
-                          ? 'bg-stone-800 text-white font-bold'
+                          ? 'bg-neutral-900 text-white font-bold'
                           : 'bg-white border-stone-200 text-stone-700'
                       }`}
                     >
@@ -403,7 +403,7 @@ export const PillarConditionalSection: React.FC<PillarConditionalSectionProps> =
               value={answers.transformadoresEsperanza?.proposedCommunityProject || ''}
               onChange={e => updateTransformadores('proposedCommunityProject', e.target.value)}
               placeholder="Ej: Pintar un mural participativo con el lema 'La fe se vive sirviendo', restaurar las bancas del parque barrial..."
-              className="w-full p-3.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-gold-500 focus:outline-none"
+              className="w-full p-3.5 rounded-xl border border-stone-300 bg-white text-stone-800 text-xs sm:text-sm focus:ring-2 focus:ring-red-600 focus:outline-none"
             />
           </div>
         </div>

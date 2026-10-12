@@ -51,10 +51,10 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
     <div className="space-y-8 animate-fadeIn">
       {/* Header */}
       <div className="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-soft">
-        <span className="text-xs font-bold uppercase tracking-wider text-forest-700 bg-forest-50 px-3 py-1 rounded-full border border-forest-200">
+        <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">
           Módulo G • Diagnóstico de Capacidades
         </span>
-        <h2 className="text-2xl font-serif font-bold text-forest-950 mt-2">
+        <h2 className="text-2xl font-serif font-bold text-neutral-900 mt-2">
           Análisis de Habilidades y Carismas Pastorales
         </h2>
         <p className="text-xs text-stone-500 mt-1">
@@ -76,7 +76,7 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
               <XAxis type="number" allowDecimals={false} fontSize={11} />
               <YAxis dataKey="habilidad" type="category" fontSize={11} width={90} />
               <Tooltip formatter={(value: any, name: any, item: any) => [`${value} jóvenes`, item.payload.fullName]} />
-              <Bar dataKey="cantidad" fill="#2D5746" radius={[0, 6, 6, 0]} />
+              <Bar dataKey="cantidad" fill="#D71920" radius={[0, 6, 6, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -106,9 +106,9 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
             </thead>
             <tbody className="divide-y divide-stone-100">
               {crossPillarData.map(d => (
-                <tr key={d.pillarName} className="hover:bg-cream-50">
+                <tr key={d.pillarName} className="hover:bg-neutral-50">
                   <td className="p-3 font-bold text-stone-900">{d.pillarName}</td>
-                  <td className="p-3 text-center font-bold text-forest-800">{d.total}</td>
+                  <td className="p-3 text-center font-bold text-neutral-900">{d.total}</td>
                   <td className="p-3 text-center">{d.animacion}</td>
                   <td className="p-3 text-center">{d.logistica}</td>
                   <td className="p-3 text-center">{d.salud}</td>
@@ -124,8 +124,8 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
 
       {/* Observaciones y Sugerencias Pastorales */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasLogistics ? 'bg-forest-50 border-forest-200 text-forest-900' : 'bg-amber-50 border-amber-200 text-amber-900'}`}>
-          {hasLogistics ? <CheckCircle2 className="w-5 h-5 text-forest-700 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
+        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasLogistics ? 'bg-red-50 border-red-200 text-red-950' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
+          {hasLogistics ? <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
           <div>
             <h4 className="font-bold text-xs">Capacidad Logística</h4>
             <p className="text-[11px] mt-0.5">
@@ -134,8 +134,8 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
           </div>
         </div>
 
-        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasHealth ? 'bg-forest-50 border-forest-200 text-forest-900' : 'bg-amber-50 border-amber-200 text-amber-900'}`}>
-          {hasHealth ? <CheckCircle2 className="w-5 h-5 text-forest-700 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
+        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasHealth ? 'bg-red-50 border-red-200 text-red-950' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
+          {hasHealth ? <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
           <div>
             <h4 className="font-bold text-xs">Primeros Auxilios</h4>
             <p className="text-[11px] mt-0.5">
@@ -144,8 +144,8 @@ export const SkillsAnalysis: React.FC<SkillsAnalysisProps> = ({ participants }) 
           </div>
         </div>
 
-        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasAnimation ? 'bg-forest-50 border-forest-200 text-forest-900' : 'bg-amber-50 border-amber-200 text-amber-900'}`}>
-          {hasAnimation ? <CheckCircle2 className="w-5 h-5 text-forest-700 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
+        <div className={`p-4 rounded-xl border flex items-start gap-3 ${hasAnimation ? 'bg-red-50 border-red-200 text-red-950' : 'bg-neutral-100 border-neutral-200 text-neutral-800'}`}>
+          {hasAnimation ? <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" /> : <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />}
           <div>
             <h4 className="font-bold text-xs">Animación y Música</h4>
             <p className="text-[11px] mt-0.5">

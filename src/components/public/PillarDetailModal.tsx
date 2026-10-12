@@ -21,7 +21,7 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-forest-950/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-neutral-950/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
       <div className="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-stone-200/90 flex flex-col justify-between">
         
         {/* Cabecera con Fotografía Principal */}
@@ -44,36 +44,36 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
           </button>
 
           <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
-            <span className="text-xs uppercase font-bold tracking-widest text-gold-300 drop-shadow">
+            <span className="text-xs uppercase font-bold tracking-widest text-red-400 drop-shadow">
               PILAR {pillar.number} • PARROQUIA SAN MARTÍN DE PORRES
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-extrabold drop-shadow-md text-white mt-1">
               {pillar.title}
             </h2>
-            <p className="text-xs sm:text-sm text-cream-100 italic drop-shadow font-light">
+            <p className="text-xs sm:text-sm text-neutral-200 italic drop-shadow font-light">
               "{pillar.subtitle}"
             </p>
           </div>
         </div>
 
         {/* Contenido Completo del Detalle */}
-        <div className="p-6 sm:p-8 space-y-8 bg-cream-50/40">
+        <div className="p-6 sm:p-8 space-y-8 bg-neutral-50/40">
           
           {/* Cita Bíblica y Reflexión */}
-          <div className="bg-white rounded-2xl p-6 border-l-4 border-l-gold-500 border border-stone-200/80 shadow-soft space-y-3">
+          <div className="bg-white rounded-2xl p-6 border-l-4 border-l-red-600 border border-stone-200/80 shadow-soft space-y-3">
             <div className="flex items-center gap-2 text-stone-900">
-              <BookOpen className="w-5 h-5 text-gold-600 shrink-0" />
-              <span className="font-serif font-bold text-sm text-forest-900">
+              <BookOpen className="w-5 h-5 text-red-600 shrink-0" />
+              <span className="font-serif font-bold text-sm text-neutral-900">
                 Iluminación Bíblica: {pillar.bibleQuote}
               </span>
             </div>
             {pillar.bibleVerseText && (
-              <blockquote className="text-sm font-serif italic text-stone-700 bg-cream-100/60 p-3.5 rounded-xl border border-cream-200 leading-relaxed">
+              <blockquote className="text-sm font-serif italic text-stone-700 bg-neutral-100/60 p-3.5 rounded-xl border border-neutral-200 leading-relaxed">
                 {pillar.bibleVerseText}
               </blockquote>
             )}
             <div className="pt-1">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-terracotta-700 block mb-1">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-red-600 block mb-1">
                 Reflexión para el Joven Confirmado:
               </span>
               <p className="text-sm text-stone-700 leading-relaxed font-medium">
@@ -84,8 +84,8 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
 
           {/* 1. Qué busca la misión */}
           <div className="space-y-2">
-            <h3 className="font-serif font-bold text-lg text-forest-950 flex items-center gap-2">
-              <Target className="w-5 h-5 text-forest-700" />
+            <h3 className="font-serif font-bold text-lg text-neutral-900 flex items-center gap-2">
+              <Target className="w-5 h-5 text-red-600" />
               ¿Qué busca esta misión?
             </h3>
             <p className="text-sm text-stone-700 leading-relaxed bg-white p-4 rounded-xl border border-stone-200">
@@ -98,14 +98,14 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
 
           {/* 2. Qué actividades se podrían realizar */}
           <div className="space-y-3">
-            <h3 className="font-serif font-bold text-lg text-forest-950 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-terracotta-600" />
+            <h3 className="font-serif font-bold text-lg text-neutral-900 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-red-600" />
               ¿Qué actividades realizaremos en campo?
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {pillar.activities.map((act, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-stone-200 text-xs text-stone-800">
-                  <span className="w-5 h-5 rounded-full bg-forest-100 text-forest-800 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                  <span className="w-5 h-5 rounded-full bg-red-50 text-red-600 border border-red-200 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
                     ✓
                   </span>
                   <span className="font-medium">{act}</span>
@@ -116,8 +116,8 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
 
           {/* 3. Qué compromiso puede implicar */}
           <div className="space-y-2">
-            <h3 className="font-serif font-bold text-lg text-forest-950 flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-forest-700" />
+            <h3 className="font-serif font-bold text-lg text-neutral-900 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-red-600" />
               ¿Qué compromiso implica para ti?
             </h3>
             <div className="bg-white p-4 rounded-xl border border-stone-200 text-xs sm:text-sm text-stone-700 leading-relaxed">
@@ -127,17 +127,17 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
 
           {/* 4. Qué habilidades pueden ser útiles */}
           <div className="space-y-3">
-            <h3 className="font-serif font-bold text-lg text-forest-950 flex items-center gap-2">
-              <Award className="w-5 h-5 text-gold-600" />
+            <h3 className="font-serif font-bold text-lg text-neutral-900 flex items-center gap-2">
+              <Award className="w-5 h-5 text-red-600" />
               ¿Qué habilidades y carismas son de gran ayuda?
             </h3>
             <div className="flex flex-wrap gap-2">
               {pillar.usefulSkills.map((skill, sIdx) => (
                 <span
                   key={sIdx}
-                  className="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-forest-200 text-forest-900 shadow-xs flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-neutral-200 text-neutral-800 shadow-xs flex items-center gap-1.5"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-forest-700" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
                   {skill}
                 </span>
               ))}
@@ -146,7 +146,7 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
 
           {/* Lugar de misión previsto */}
           <div className="flex items-center gap-2 text-xs text-stone-600 p-3 bg-stone-100/70 rounded-xl">
-            <MapPin className="w-4 h-4 text-terracotta-600 shrink-0" />
+            <MapPin className="w-4 h-4 text-red-600 shrink-0" />
             <span><strong>Lugar previsto en Tarija:</strong> {pillar.targetLocation}</span>
           </div>
 
@@ -166,7 +166,7 @@ export const PillarDetailModal: React.FC<PillarDetailModalProps> = ({
           <button
             type="button"
             onClick={() => onSelectPillar(pillar)}
-            className="w-full sm:w-auto btn-gold text-xs sm:text-sm py-3 px-8 font-bold text-forest-950 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-transform"
+            className="w-full sm:w-auto btn-primary text-xs sm:text-sm py-3 px-8 font-bold text-white flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-transform"
           >
             <Check className="w-4 h-4" />
             <span>INICIAR ENCUESTA AQUÍ</span>

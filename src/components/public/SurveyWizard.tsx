@@ -330,8 +330,8 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
       {/* Cabecera de Misión Fija y Temporizador Regresivo de 2 Minutos */}
       <div className="flex items-center justify-between mb-6 pb-3 border-b border-stone-100">
         <div className="flex items-center gap-2">
-          <span className="text-xs px-3 py-1 rounded-full font-bold bg-forest-900 text-gold-300 shadow-sm border border-gold-400/30 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+          <span className="text-xs px-3 py-1 rounded-full font-bold bg-neutral-900 text-red-400 shadow-sm border border-neutral-700 flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-red-400" />
             <span>Misión: {currentPillarInfo.title}</span>
           </span>
         </div>
@@ -341,9 +341,9 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
           <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold transition-colors ${
             timeLeftSeconds <= 30
               ? 'bg-red-100 text-red-700 border border-red-300 animate-pulse'
-              : 'bg-gold-50 text-forest-900 border border-gold-300'
+              : 'bg-neutral-100 text-neutral-900 border border-neutral-300'
           }`}>
-            <Clock className={`w-3.5 h-3.5 ${timeLeftSeconds <= 30 ? 'text-red-600' : 'text-gold-600'}`} />
+            <Clock className={`w-3.5 h-3.5 ${timeLeftSeconds <= 30 ? 'text-red-600' : 'text-neutral-600'}`} />
             <span>Tiempo restante: {formatTimer(timeLeftSeconds)}</span>
           </div>
         </div>
@@ -358,11 +358,11 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
             {currentStepIndex === 6 && 'Pregunta 6 de 7 • Disponibilidad'}
             {currentStepIndex === 7 && 'Pregunta 7 de 7 • Continuidad (Última Pregunta)'}
           </span>
-          <span className="text-terracotta-600 font-extrabold">{progressPercent}%</span>
+          <span className="text-red-600 font-extrabold">{progressPercent}%</span>
         </div>
         <div className="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-forest-800 via-forest-600 to-terracotta-500 transition-all duration-500 rounded-full"
+            className="h-full bg-gradient-to-r from-neutral-900 via-red-600 to-red-500 transition-all duration-500 rounded-full"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -381,13 +381,13 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
       {/* ============================================================ */}
       {currentStepIndex === 0 && (
         <div className="space-y-6 animate-fadeIn">
-          <div className="bg-gradient-to-r from-forest-900 to-forest-800 p-5 rounded-2xl text-white shadow-sm flex items-start gap-3.5">
-            <Sparkles className="w-6 h-6 text-gold-400 shrink-0 mt-0.5" />
+          <div className="bg-gradient-to-r from-neutral-900 to-neutral-800 p-5 rounded-2xl text-white shadow-sm flex items-start gap-3.5">
+            <Sparkles className="w-6 h-6 text-red-400 shrink-0 mt-0.5" />
             <div>
               <h3 className="font-serif font-bold text-white text-base">
                 ¡Bienvenido a tu Encuesta de Confirmación!
               </h3>
-              <p className="text-xs text-cream-200 mt-1 leading-relaxed">
+              <p className="text-xs text-neutral-300 mt-1 leading-relaxed">
                 Selecciona tu Grupo de Confirmación (1 al 7) y escribe tu nombre completo para comenzar tu misión pastoral.
               </p>
             </div>
@@ -396,8 +396,8 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
           <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-soft space-y-5">
             {/* 1. SELECCIÓN DE GRUPO (1 AL 7) */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-forest-950 mb-2 flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-forest-700" />
+              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-900 mb-2 flex items-center gap-1.5">
+                <Users className="w-4 h-4 text-red-600" />
                 <span>1. Selecciona tu Grupo de Confirmación (2° Año) *</span>
               </label>
               <select
@@ -406,7 +406,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   setParticipantGroup(e.target.value as ConfirmationGroup);
                   setValidationError(null);
                 }}
-                className="w-full px-4 py-3.5 rounded-xl border border-stone-300 text-sm font-semibold text-stone-900 focus:ring-2 focus:ring-forest-600 focus:outline-none bg-stone-50/50"
+                className="w-full px-4 py-3.5 rounded-xl border border-stone-300 text-sm font-semibold text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50"
               >
                 <option value="">-- Toca aquí y elige tu grupo (1 al 7) --</option>
                 {CONFIRMATION_GROUPS.map(grp => (
@@ -417,8 +417,8 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
             {/* 2. NOMBRE DEL CONFIRMANDO */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-forest-950 mb-2 flex items-center gap-1.5">
-                <User className="w-4 h-4 text-forest-700" />
+              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-900 mb-2 flex items-center gap-1.5">
+                <User className="w-4 h-4 text-red-600" />
                 <span>2. Tu Nombre y Apellido *</span>
               </label>
               <input
@@ -430,7 +430,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   setParticipantName(e.target.value);
                   setValidationError(null);
                 }}
-                className="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm font-semibold text-stone-900 focus:ring-2 focus:ring-forest-600 focus:outline-none bg-stone-50/50 placeholder:text-stone-400"
+                className="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm font-semibold text-stone-900 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50 placeholder:text-stone-400"
               />
             </div>
 
@@ -445,7 +445,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   placeholder="Ej: 71829304"
                   value={participantPhone}
                   onChange={e => setParticipantPhone(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-800 focus:ring-2 focus:ring-forest-600 focus:outline-none bg-stone-50/50"
+                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-800 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50"
                 />
               </div>
 
@@ -459,23 +459,23 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                   max={25}
                   value={participantAge}
                   onChange={e => setParticipantAge(parseInt(e.target.value) || 16)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-800 focus:ring-2 focus:ring-forest-600 focus:outline-none bg-stone-50/50"
+                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-800 focus:ring-2 focus:ring-red-600 focus:outline-none bg-stone-50/50"
                 />
               </div>
             </div>
 
             {/* Previsualización del Código Exclusivo */}
             {participantGroup && participantName.trim().length >= 3 && (
-              <div className="p-4 rounded-xl bg-gold-50/80 border border-gold-300 flex items-center justify-between animate-fadeIn">
+              <div className="p-4 rounded-xl bg-red-50/80 border border-red-200 flex items-center justify-between animate-fadeIn">
                 <div className="space-y-0.5">
-                  <span className="text-[11px] font-bold text-forest-900 uppercase tracking-wider block">
+                  <span className="text-[11px] font-bold text-neutral-700 uppercase tracking-wider block">
                     Tu Código Exclusivo de Misión (Automático):
                   </span>
-                  <span className="font-mono font-bold text-forest-950 text-sm sm:text-base">
+                  <span className="font-mono font-bold text-neutral-900 text-sm sm:text-base">
                     {accessCodeInput || generateExclusiveCode(participantGroup, participantName)}
                   </span>
                 </div>
-                <span className="px-2.5 py-1 rounded-lg bg-forest-900 text-gold-300 text-[10px] font-bold tracking-wider uppercase">
+                <span className="px-2.5 py-1 rounded-lg bg-neutral-900 text-red-400 text-[10px] font-bold tracking-wider uppercase">
                   Exclusivo
                 </span>
               </div>
@@ -500,11 +500,11 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
             {/* Cabecera de la pregunta */}
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-forest-100 text-forest-800 uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-neutral-100 text-neutral-800 border border-neutral-200 uppercase tracking-wider">
                   Pregunta {currentStepIndex} de 7
                 </span>
                 {q.required && (
-                  <span className="text-xs font-semibold text-terracotta-600">
+                  <span className="text-xs font-semibold text-red-600">
                     * Obligatoria
                   </span>
                 )}
@@ -515,7 +515,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                 )}
               </div>
 
-              <h3 className="font-serif font-black text-lg sm:text-xl text-forest-950 leading-snug">
+              <h3 className="font-serif font-black text-lg sm:text-xl text-neutral-900 leading-snug">
                 {q.question}
               </h3>
 
@@ -540,14 +540,14 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                     onClick={() => handleOptionSelect(q.id, opt.id, isSelectedMultiple, q.maxSelections || 4)}
                     className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all flex items-start gap-3.5 ${
                       isSelected
-                        ? 'border-forest-700 bg-forest-50/70 shadow-md ring-2 ring-forest-600/30'
-                        : 'border-stone-200 hover:border-forest-300 hover:bg-stone-50 bg-white'
+                        ? 'border-red-600 bg-red-50/60 shadow-md ring-2 ring-red-600/20'
+                        : 'border-stone-200 hover:border-red-300 hover:bg-stone-50 bg-white'
                     }`}
                   >
                     {/* Indicador de selección */}
                     <div className={`w-6 h-6 rounded-${isSelectedMultiple ? 'md' : 'full'} border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
                       isSelected
-                        ? 'border-forest-800 bg-forest-800 text-white'
+                        ? 'border-red-600 bg-red-600 text-white'
                         : 'border-stone-300 bg-white'
                     }`}>
                       {isSelected && (
@@ -561,7 +561,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
                     <div className="flex-1 space-y-1">
                       <span className={`text-sm sm:text-base font-bold block ${
-                        isSelected ? 'text-forest-950' : 'text-stone-800'
+                        isSelected ? 'text-neutral-900' : 'text-stone-800'
                       }`}>
                         {opt.label}
                       </span>
@@ -573,7 +573,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                     </div>
 
                     {isSelected && (
-                      <span className="text-xs font-bold text-forest-800 shrink-0 hidden sm:inline-block">
+                      <span className="text-xs font-bold text-red-600 shrink-0 hidden sm:inline-block">
                         Seleccionado
                       </span>
                     )}
@@ -608,10 +608,10 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
           className={`text-xs sm:text-sm py-3 px-8 flex items-center gap-2 font-bold transition-all shadow-md active:scale-95 ${
             currentStepIndex === 0
               ? (participantGroup && participantName.trim()
-                  ? 'btn-gold animate-pulse ring-4 ring-gold-300/60 shadow-xl scale-105 font-black text-forest-950'
+                  ? 'btn-primary animate-pulse shadow-xl scale-105 font-black text-white'
                   : 'btn-primary')
               : (currentStepIndex === 7
-                  ? 'btn-gold font-black text-forest-950 shadow-xl hover:scale-105 active:scale-95 animate-pulse'
+                  ? 'btn-primary font-black text-white shadow-xl hover:scale-105 active:scale-95 animate-pulse'
                   : 'btn-primary')
           }`}
         >
@@ -636,11 +636,11 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border-2 border-forest-300 space-y-6 animate-fadeIn"
+            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border-2 border-neutral-300 space-y-6 animate-fadeIn"
           >
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-terracotta-100 text-terracotta-700 rounded-2xl shrink-0">
-                <AlertCircle className="w-7 h-7 text-terracotta-700" />
+              <div className="p-3 bg-red-100 text-red-600 rounded-2xl shrink-0">
+                <AlertCircle className="w-7 h-7 text-red-600" />
               </div>
               <div className="space-y-2">
                 <h3 id="confirm-modal-title" className="font-serif font-extrabold text-lg sm:text-xl text-stone-900 leading-snug">
@@ -668,8 +668,8 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
 
             {/* Indicador de progreso de guardado */}
             {isSubmitting && (
-              <div className="p-4 rounded-xl bg-forest-50 border border-forest-200 text-forest-900 text-xs flex items-center gap-3">
-                <div className="w-5 h-5 border-2 border-forest-700 border-t-transparent rounded-full animate-spin shrink-0" />
+              <div className="p-4 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-900 text-xs flex items-center gap-3">
+                <div className="w-5 h-5 border-2 border-red-600 border-t-transparent rounded-full animate-spin shrink-0" />
                 <span className="font-medium">
                   Guardando tu encuesta…
                 </span>
@@ -696,7 +696,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
                 type="button"
                 disabled={isSubmitting}
                 onClick={handleConfirmAndSave}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -727,7 +727,7 @@ export const SurveyWizard: React.FC<SurveyWizardProps> = ({
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-serif font-black text-xl text-forest-950">
+              <h3 className="font-serif font-black text-xl text-neutral-900">
                 ¡El tiempo de 2 minutos ha finalizado!
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">

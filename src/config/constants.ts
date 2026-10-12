@@ -11,8 +11,7 @@ export const APP_INFO = {
 
 export const DEFAULT_CONFIG: SystemConfig = {
   appsScriptUrl: 'https://script.google.com/macros/s/AKfycby4ZtzWBq1NN8VA3xVA0TeFpSSJ4GFhnuA6A98kVopf12ZjnG-59kD018Gi-p1fTPF6/exec',
-  spreadsheetId: '1o7P-2gQq0UnWzEfBvVwxQv8wE5FHb9idVW8RITzuWGw',
-  adminPin: 'smp2026', // PIN por defecto para acceso del equipo pastoral
+  adminPin: '', // La contraseña se gestiona mediante hash SHA-256 seguro en authService y backend
   surveyActive: true,
   allowOpenRegistration: true, // Permite registro abierto o con código
   parishName: 'Parroquia San Martín de Porres',

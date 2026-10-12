@@ -150,7 +150,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
             onClick={() => setActiveTab('participants')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
               activeTab === 'participants'
-                ? 'bg-forest-800 text-white shadow-sm'
+                ? 'bg-neutral-900 text-white shadow-sm'
                 : 'text-stone-600 hover:bg-stone-100'
             }`}
           >
@@ -163,7 +163,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
             }}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
               activeTab === 'codes'
-                ? 'bg-forest-800 text-white shadow-sm'
+                ? 'bg-neutral-900 text-white shadow-sm'
                 : 'text-stone-600 hover:bg-stone-100'
             }`}
           >
@@ -176,7 +176,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
             }}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
               activeTab === 'audit'
-                ? 'bg-terracotta-700 text-white shadow-sm'
+                ? 'bg-red-600 text-white shadow-sm'
                 : 'text-stone-600 hover:bg-stone-100'
             }`}
           >
@@ -198,7 +198,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                 placeholder="Buscar por nombre, WhatsApp, código..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-xl border border-stone-300 text-sm focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                className="w-full pl-10 pr-4 py-2 rounded-xl border border-stone-300 text-sm focus:ring-2 focus:ring-red-600 focus:outline-none"
               />
             </div>
 
@@ -206,7 +206,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
               <select
                 value={selectedGroup}
                 onChange={e => setSelectedGroup(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm bg-white focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm bg-white focus:ring-2 focus:ring-red-600 focus:outline-none"
               >
                 <option value="all">Todos los grupos de Confirmación</option>
                 {CONFIRMATION_GROUPS.map(g => (
@@ -219,7 +219,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
               <select
                 value={selectedPillar}
                 onChange={e => setSelectedPillar(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm bg-white focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                className="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm bg-white focus:ring-2 focus:ring-red-600 focus:outline-none"
               >
                 <option value="all">Todos los Pilares</option>
                 {(Object.keys(PILLARS) as PillarId[]).map(pId => (
@@ -268,7 +268,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                           <span className="block text-[11px] text-stone-500">Animador: {p.catechistName}</span>
                         </td>
                         <td className="px-4 py-3">
-                          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-forest-100 text-forest-800 border border-forest-200">
+                          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
                             {PILLARS[p.primaryPillar]?.title.split(' ')[0] || p.primaryPillar}
                           </span>
                         </td>
@@ -292,7 +292,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                             <button
                               onClick={() => setInspectingParticipant(p)}
                               title="Ver ficha completa"
-                              className="p-1.5 rounded-lg hover:bg-stone-100 text-stone-600 hover:text-forest-800 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-stone-100 text-stone-600 hover:text-red-600 transition-colors"
                             >
                               <Eye className="w-4 h-4" />
                             </button>
@@ -360,7 +360,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                 className={`p-3 rounded-xl border text-center transition-all ${
                   c.used
                     ? 'bg-stone-50 border-stone-200 text-stone-500'
-                    : 'bg-white border-forest-300 text-forest-900 shadow-xs'
+                    : 'bg-white border-stone-300 text-neutral-900 shadow-xs'
                 }`}
               >
                 <div className="font-mono font-bold text-sm">{c.code}</div>
@@ -372,7 +372,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                       </span>
                       <button
                         onClick={() => handleUnlockCode(c.code)}
-                        className="text-[10px] text-terracotta-700 hover:underline flex items-center justify-center gap-1 mx-auto"
+                        className="text-[10px] text-red-700 hover:underline flex items-center justify-center gap-1 mx-auto"
                         title="Desbloquear código excepcionalmente"
                       >
                         <Unlock className="w-3 h-3" />
@@ -380,7 +380,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                       </button>
                     </div>
                   ) : (
-                    <span className="text-emerald-700 font-bold">Disponible</span>
+                    <span className="text-red-600 font-bold">Disponible</span>
                   )}
                 </div>
               </div>
@@ -440,7 +440,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                         <td className="px-4 py-3 text-stone-600 max-w-[150px] truncate" title={log.oldValue}>
                           {log.oldValue}
                         </td>
-                        <td className="px-4 py-3 text-forest-800 font-semibold max-w-[150px] truncate" title={log.newValue}>
+                        <td className="px-4 py-3 text-red-700 font-semibold max-w-[150px] truncate" title={log.newValue}>
                           {log.newValue}
                         </td>
                         <td className="px-4 py-3 text-stone-700 italic max-w-[200px]" title={log.reason}>
@@ -522,7 +522,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div 
             onClick={e => e.stopPropagation()}
-            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl border-2 border-forest-300 animate-fadeIn"
+            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-stone-200 animate-fadeIn"
           >
             <div className="flex items-center justify-between pb-4 border-b border-stone-200">
               <div className="flex items-center gap-2.5">
@@ -555,8 +555,8 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
               )}
 
               {correctionSuccess && (
-                <div className="p-3 rounded-xl bg-green-50 border border-green-200 text-green-800 flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-800 flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-red-600" />
                   <span>{correctionSuccess}</span>
                 </div>
               )}
@@ -566,7 +566,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                 <select
                   value={editPillar}
                   onChange={e => setEditPillar(e.target.value as PillarId)}
-                  className="w-full p-2.5 rounded-xl border border-stone-300 bg-white text-stone-900 text-xs focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border border-stone-300 bg-white text-stone-900 text-xs focus:ring-2 focus:ring-red-600 focus:outline-none"
                 >
                   <option value="casa_comun">Pilar 1: Casa Común</option>
                   <option value="corazones_en_accion">Pilar 2: Corazones en Acción</option>
@@ -579,7 +579,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                 <select
                   value={editGroup}
                   onChange={e => setEditGroup(e.target.value as ConfirmationGroup)}
-                  className="w-full p-2.5 rounded-xl border border-stone-300 bg-white text-stone-900 text-xs focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border border-stone-300 bg-white text-stone-900 text-xs focus:ring-2 focus:ring-red-600 focus:outline-none"
                 >
                   {CONFIRMATION_GROUPS.map(g => (
                     <option key={g} value={g}>{g}</option>
@@ -593,7 +593,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                   type="text"
                   value={editPhone}
                   onChange={e => setEditPhone(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-stone-300 text-stone-900 text-xs focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border border-stone-300 text-stone-900 text-xs focus:ring-2 focus:ring-red-600 focus:outline-none"
                 />
               </div>
 
@@ -607,7 +607,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                     value={editReason}
                     onChange={e => setEditReason(e.target.value)}
                     placeholder="Ej: El joven solicitó cambio de pilar por incompatibilidad de horario con su catequista..."
-                    className="w-full p-2.5 rounded-xl border border-stone-300 text-stone-900 text-xs focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border border-stone-300 text-stone-900 text-xs focus:ring-2 focus:ring-red-600 focus:outline-none"
                     required
                   />
                 </div>
@@ -621,7 +621,7 @@ export const ParticipantsList: React.FC<ParticipantsListProps> = ({
                     value={editResponsible}
                     onChange={e => setEditResponsible(e.target.value)}
                     placeholder="Ej: Hno. Carlos Méndez / Coordinación"
-                    className="w-full p-2.5 rounded-xl border border-stone-300 text-stone-900 text-xs focus:ring-2 focus:ring-forest-600 focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border border-stone-300 text-stone-900 text-xs focus:ring-2 focus:ring-red-600 focus:outline-none"
                     required
                   />
                 </div>

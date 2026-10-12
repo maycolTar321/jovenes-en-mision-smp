@@ -34,50 +34,64 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
     <div className="space-y-16 py-4">
       
       {/* 1. PORTADA */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-forest-900 via-forest-800 to-forest-950 text-white shadow-elevated p-8 sm:p-14 lg:p-18 border border-forest-700/80">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-950 to-black text-white shadow-elevated p-8 sm:p-12 lg:p-16 border border-neutral-800">
         
-        {/* Luces sutiles de fondo */}
-        <div className="absolute -top-28 -right-28 w-96 h-96 bg-gold-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-28 -left-28 w-96 h-96 bg-terracotta-600/20 rounded-full blur-3xl pointer-events-none" />
+        {/* Luces sutiles de fondo en rojo institucional */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-red-700/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-7">
           
-          {/* Logo Oficial de Catequistas y Badge */}
-          <div className="flex flex-col items-center justify-center gap-3">
-            <div className="p-1 rounded-2xl bg-white/10 backdrop-blur-md border border-gold-400/40 shadow-xl hover:scale-105 transition-transform duration-300">
+          {/* Bloque Destacado de Parroquia y Logo Oficial */}
+          <div className="flex flex-col items-center justify-center gap-4">
+            {/* Logo Oficial con marco blanco nítido y sombra */}
+            <div className="p-2 rounded-3xl bg-white shadow-2xl border-2 border-red-600/30 hover:scale-105 transition-transform duration-300">
               <img
                 src="/logo.png"
                 alt="Logo Catequistas San Martín de Porres"
-                className="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-xl bg-white p-1.5 shadow-inner"
+                className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
               />
             </div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-forest-800/90 border border-gold-400/40 text-gold-300 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
-              <Flame className="w-4 h-4 text-terracotta-400" />
-              <span>Parroquia San Martín de Porres • Tarija, Bolivia</span>
+
+            {/* Encabezado Institucional Destacado de la Parroquia */}
+            <div className="space-y-1.5 max-w-2xl px-2">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 block">
+                Comunidad Eclesial & Pastoral Juvenil
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-black tracking-wide text-white leading-tight">
+                PARROQUIA SAN MARTÍN DE PORRES
+              </h2>
+              <div className="flex items-center justify-center gap-2 text-sm sm:text-base text-neutral-300 font-medium">
+                <span className="w-2 h-2 rounded-full bg-red-600 inline-block" />
+                <span className="tracking-wider uppercase text-xs sm:text-sm">Tarija, Bolivia</span>
+                <span className="w-2 h-2 rounded-full bg-red-600 inline-block" />
+              </div>
             </div>
           </div>
 
           {/* Título Principal */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-black tracking-tight text-cream-50 leading-tight">
-            JÓVENES EN MISIÓN SMP
-          </h1>
+          <div className="space-y-2 pt-2 border-t border-neutral-800/80">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-black tracking-tight text-white leading-tight">
+              JÓVENES EN MISIÓN SMP
+            </h1>
 
-          {/* Lema */}
-          <p className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold italic text-gold-300 tracking-wider flex items-center justify-center gap-2">
-            <Sparkles className="w-6 h-6 text-gold-400 shrink-0" />
-            <span>LA FE SE VIVE SIRVIENDO.</span>
-          </p>
+            {/* Lema */}
+            <p className="text-lg sm:text-2xl lg:text-3xl font-serif font-extrabold italic text-red-500 tracking-wider flex items-center justify-center gap-2">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-red-500 shrink-0" />
+              <span>LA FE SE VIVE SIRVIENDO.</span>
+            </p>
+          </div>
 
           {/* Texto de la Portada */}
-          <p className="text-base sm:text-lg lg:text-xl text-cream-200/95 font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-neutral-300 font-light leading-relaxed max-w-2xl mx-auto">
             “Tu camino de fe continúa. Descubre cómo puedes poner tus talentos al servicio de los demás y ayudar a transformar nuestra comunidad”.
           </p>
 
-          {/* Botón Principal: INICIAR ENCUESTA */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Botón Principal: INICIAR ENCUESTA (Rojo Institucional) */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={handleDiscoverMissionClick}
-              className="btn-gold text-base sm:text-lg py-4 px-10 rounded-2xl font-black text-forest-950 flex items-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300"
+              className="w-full sm:w-auto text-base sm:text-lg py-4 px-10 rounded-2xl font-black bg-red-600 hover:bg-red-700 text-white flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 ring-4 ring-red-600/20"
             >
               <span>INICIAR ENCUESTA</span>
               <ChevronDown className="w-5 h-5 animate-bounce" />
@@ -85,8 +99,8 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
           </div>
 
           {/* Frase Inspiradora Pastoral */}
-          <div className="pt-2 flex items-center justify-center gap-2 text-xs sm:text-sm text-gold-200/90 font-serif italic">
-            <Sparkles className="w-4 h-4 text-gold-400 shrink-0" />
+          <div className="pt-2 flex items-center justify-center gap-2 text-xs sm:text-sm text-neutral-400 font-serif italic">
+            <Sparkles className="w-4 h-4 text-red-500 shrink-0" />
             <span>«Aquí estoy, Señor, envíame a mí» (Is 6,8) • Pastoral de Confirmación 2026</span>
           </div>
 
@@ -98,13 +112,13 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
         
         {/* Cabecera de la sección */}
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-terracotta-700 bg-terracotta-50 px-4 py-1.5 rounded-full border border-terracotta-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-4 py-1.5 rounded-full border border-red-200">
             Campos de Acción Pastoral
           </span>
-          <h2 className="text-2xl sm:text-4xl font-serif font-extrabold text-forest-950">
+          <h2 className="text-2xl sm:text-4xl font-serif font-black text-neutral-900">
             Conoce los Tres Pilares de Nuestra Misión
           </h2>
-          <p className="text-sm text-stone-600">
+          <p className="text-sm text-neutral-600">
             Explora las fotografías y detalles de cada misión, reflexiona en la cita bíblica y elige dónde deseas servir en Tarija.
           </p>
         </div>
@@ -118,9 +132,9 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
             return (
               <div
                 key={pillar.id}
-                className="bg-white rounded-3xl border border-stone-200/90 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1"
+                className="bg-white rounded-3xl border border-neutral-200 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1"
               >
-                {/* Fotografía Real y Pertinente con Recorte Coherente */}
+                {/* Fotografía Real y Pertinente */}
                 <div className="relative">
                   <PillarImage
                     src={pillar.imageUrl}
@@ -138,47 +152,47 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
                   {/* Encabezado del Pilar */}
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold tracking-widest uppercase text-terracotta-700">
+                      <span className="text-xs font-bold tracking-widest uppercase text-red-700">
                         PILAR {pillar.number}
                       </span>
-                      <span className="text-[11px] text-stone-400 font-mono">
+                      <span className="text-[11px] text-neutral-400 font-mono">
                         SMP Tarija
                       </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-serif font-extrabold text-stone-900 group-hover:text-forest-800 transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-serif font-black text-neutral-900 group-hover:text-red-700 transition-colors">
                       {pillar.title}
                     </h3>
 
-                    <p className="text-xs font-medium text-forest-700 italic">
+                    <p className="text-xs font-medium text-red-700 italic">
                       "{pillar.subtitle}"
                     </p>
 
-                    <p className="text-sm text-stone-600 leading-relaxed pt-1">
+                    <p className="text-sm text-neutral-600 leading-relaxed pt-1">
                       {pillar.description}
                     </p>
                   </div>
 
                   {/* Qué necesidad busca atender */}
-                  <div className="p-3.5 bg-cream-100/70 rounded-xl border border-cream-200/80 space-y-1">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-forest-900 flex items-center gap-1.5">
-                      <Church className="w-3.5 h-3.5 text-forest-700" />
+                  <div className="p-3.5 bg-neutral-50 rounded-xl border border-neutral-200 space-y-1">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-900 flex items-center gap-1.5">
+                      <Church className="w-3.5 h-3.5 text-red-600" />
                       Necesidad que busca atender:
                     </span>
-                    <p className="text-xs text-stone-700 leading-relaxed">
+                    <p className="text-xs text-neutral-700 leading-relaxed">
                       {pillar.needAddressed}
                     </p>
                   </div>
 
                   {/* Ejemplos de acciones */}
                   <div className="space-y-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-stone-600">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-600">
                       Ejemplos de acciones:
                     </span>
-                    <ul className="space-y-1.5 text-xs text-stone-700">
+                    <ul className="space-y-1.5 text-xs text-neutral-700">
                       {pillar.activities.map((act, aIdx) => (
                         <li key={aIdx} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-forest-700 mt-1.5 shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-600 mt-1.5 shrink-0" />
                           <span>{act}</span>
                         </li>
                       ))}
@@ -186,17 +200,17 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
                   </div>
 
                   {/* Cita bíblica y reflexión */}
-                  <div className="p-3.5 bg-white rounded-xl border border-stone-200 text-xs space-y-2">
-                    <div className="flex items-center gap-1.5 text-stone-900 font-bold font-serif">
-                      <BookOpen className="w-3.5 h-3.5 text-gold-600 shrink-0" />
+                  <div className="p-3.5 bg-white rounded-xl border border-neutral-200 text-xs space-y-2">
+                    <div className="flex items-center gap-1.5 text-neutral-900 font-bold font-serif">
+                      <BookOpen className="w-3.5 h-3.5 text-red-600 shrink-0" />
                       <span>{pillar.bibleQuote}</span>
                     </div>
                     {pillar.bibleVerseText && (
-                      <p className="italic text-stone-600 font-serif text-[11px] border-l-2 border-gold-400 pl-2">
+                      <p className="italic text-neutral-600 font-serif text-[11px] border-l-2 border-red-500 pl-2">
                         {pillar.bibleVerseText}
                       </p>
                     )}
-                    <p className="text-[11px] text-stone-700 leading-relaxed bg-cream-50 p-2 rounded border border-cream-200 font-medium">
+                    <p className="text-[11px] text-neutral-700 leading-relaxed bg-neutral-50 p-2 rounded border border-neutral-200 font-medium">
                       “{pillar.reflection}”
                     </p>
                   </div>
@@ -206,7 +220,7 @@ export const HeroPresentation: React.FC<HeroPresentationProps> = ({ onStartSurve
                     <button
                       type="button"
                       onClick={() => handleOpenPillarDetail(pillar)}
-                      className="w-full btn-primary py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 group-hover:bg-forest-900 transition-colors shadow-sm"
+                      className="w-full btn-primary py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 group-hover:bg-red-700 transition-colors shadow-sm"
                     >
                       <span>VER Y PARTICIPAR</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

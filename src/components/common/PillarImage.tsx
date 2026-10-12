@@ -24,32 +24,23 @@ export const PillarImage: React.FC<PillarImageProps> = ({
   const getFallbackIcon = () => {
     switch (pillarNumber) {
       case 1:
-        return <Sprout className="w-12 h-12 text-forest-700" />;
+        return <Sprout className="w-12 h-12 text-red-600" />;
       case 2:
-        return <HeartHandshake className="w-12 h-12 text-terracotta-600" />;
+        return <HeartHandshake className="w-12 h-12 text-red-600" />;
       case 3:
-        return <Sparkles className="w-12 h-12 text-gold-600" />;
+        return <Sparkles className="w-12 h-12 text-red-600" />;
       default:
         return <ImageIcon className="w-12 h-12 text-stone-500" />;
     }
   };
 
   const getGradient = () => {
-    switch (pillarNumber) {
-      case 1:
-        return 'from-forest-900/80 via-forest-800/40 to-transparent';
-      case 2:
-        return 'from-terracotta-900/80 via-terracotta-800/40 to-transparent';
-      case 3:
-        return 'from-amber-950/80 via-amber-800/40 to-transparent';
-      default:
-        return 'from-stone-900/80 to-transparent';
-    }
+    return 'from-neutral-950/85 via-neutral-900/40 to-transparent';
   };
 
   if (hasError) {
     return (
-      <div className={`w-full ${className} rounded-2xl bg-cream-200/90 border border-cream-300 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden shadow-inner`}>
+      <div className={`w-full ${className} rounded-2xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden shadow-inner`}>
         <div className="p-4 rounded-full bg-white shadow-sm mb-3">
           {getFallbackIcon()}
         </div>
@@ -89,7 +80,7 @@ export const PillarImage: React.FC<PillarImageProps> = ({
       {/* Badge sobre la foto */}
       <div className="absolute top-3.5 left-3.5 z-10">
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-white/95 text-stone-900 backdrop-blur-md shadow-md border border-white/50">
-          <span className="w-2 h-2 rounded-full bg-terracotta-600 animate-ping inline-block" />
+          <span className="w-2 h-2 rounded-full bg-red-600 animate-ping inline-block" />
           Pilar {pillarNumber}
         </span>
       </div>

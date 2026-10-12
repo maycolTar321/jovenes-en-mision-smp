@@ -10,6 +10,7 @@ import { SettingsModal } from './SettingsModal';
 import { 
   LayoutDashboard, Users, Sparkles, Wand2, ClipboardList, FileDown, Settings, Lock, KeyRound, LogOut, ShieldCheck, Eye, EyeOff 
 } from 'lucide-react';
+import { authService } from '../../services/authService';
 
 interface AdminLayoutProps {
   participants: Participant[];
@@ -53,42 +54,56 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   const [activeTab, setActiveTab] = useState<AdminTab>('dashboard');
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
 
+  const [isVerifying, setIsVerifying] = useState<boolean>(false);
+
   // Check session auth
   useEffect(() => {
-    const authStatus = sessionStorage.getItem('smp_admin_authenticated');
-    if (authStatus === 'true') {
+    if (authService.isAuthenticated()) {
       setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
     }
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (pinInput.trim() === config.adminPin) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('smp_admin_authenticated', 'true');
-      setPinError(false);
-    } else {
+    if (isVerifying) return;
+    setIsVerifying(true);
+    setPinError(false);
+
+    try {
+      const result = await authService.verifyPassword(pinInput, config);
+      if (result.success) {
+        setIsAuthenticated(true);
+        setPinError(false);
+      } else {
+        setPinError(true);
+      }
+    } catch {
       setPinError(true);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
   const handleLogout = () => {
+    authService.logout();
     setIsAuthenticated(false);
-    sessionStorage.removeItem('smp_admin_authenticated');
     setPinInput('');
+    onExitAdmin();
   };
 
   if (!isAuthenticated) {
     return (
       <div className="max-w-md mx-auto my-12 p-8 bg-white rounded-3xl border border-stone-200 shadow-elevated text-center space-y-6">
-        <div className="w-16 h-16 rounded-2xl bg-forest-100 text-forest-800 flex items-center justify-center mx-auto shadow-inner">
-          <Lock className="w-8 h-8 text-forest-700" />
+        <div className="w-16 h-16 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mx-auto shadow-inner">
+          <ShieldCheck className="w-8 h-8 text-red-600" />
         </div>
 
         <div>
-          <h2 className="text-2xl font-serif font-bold text-forest-950">Acceso al Panel Pastoral</h2>
+          <h2 className="text-2xl font-serif font-black text-neutral-900">Acceso restringido</h2>
           <p className="text-xs text-stone-500 mt-1">
-            Área reservada para el Párroco, Coordinador de Confirmación y Consejo Pastoral.
+            Área reservada de coordinación pastoral. Ingresa tus credenciales autorizadas.
           </p>
         </div>
 
@@ -99,14 +114,15 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
               <input
                 type={showPin ? 'text' : 'password'}
                 required
-                placeholder="Ingresa el PIN de seguridad"
+                disabled={isVerifying}
+                placeholder="Ingresa la contraseña"
                 value={pinInput}
                 onChange={e => {
                   setPinInput(e.target.value);
                   setPinError(false);
                 }}
                 className={`w-full pl-10 pr-11 py-3 rounded-xl border text-sm text-stone-900 focus:outline-none ${
-                  pinError ? 'border-red-500 ring-2 ring-red-100' : 'border-stone-300 focus:ring-2 focus:ring-forest-600'
+                  pinError ? 'border-red-500 ring-2 ring-red-100' : 'border-stone-300 focus:ring-2 focus:ring-red-600'
                 }`}
               />
               <button
@@ -124,7 +140,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             </div>
             {pinError && (
               <p className="text-xs text-red-600 mt-1.5 text-left font-medium">
-                PIN incorrecto. (PIN por defecto: smp2026)
+                Contraseña incorrecta. Acceso denegado.
               </p>
             )}
           </div>
@@ -132,16 +148,25 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <div className="flex gap-2">
             <button
               type="button"
+              disabled={isVerifying}
               onClick={onExitAdmin}
-              className="btn-secondary w-1/2 text-xs"
+              className="btn-secondary w-1/2 text-xs font-bold"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="btn-primary w-1/2 text-xs font-bold"
+              disabled={isVerifying || !pinInput.trim()}
+              className="btn-primary w-1/2 text-xs font-bold flex items-center justify-center gap-1.5"
             >
-              Ingresar
+              {isVerifying ? (
+                <>
+                  <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span>Verificando...</span>
+                </>
+              ) : (
+                <span>Ingresar</span>
+              )}
             </button>
           </div>
         </form>
@@ -176,8 +201,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                   isActive
-                    ? 'bg-forest-800 text-white shadow-sm'
-                    : 'text-stone-600 hover:bg-cream-100 hover:text-stone-900'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'text-stone-600 hover:bg-neutral-100 hover:text-stone-900'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -191,7 +216,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           <button
             onClick={() => setIsSettingsOpen(true)}
             title="Configuración de Backend"
-            className="p-2 rounded-xl text-stone-600 hover:bg-stone-100 hover:text-forest-800"
+            className="p-2 rounded-xl text-stone-600 hover:bg-stone-100 hover:text-red-600"
           >
             <Settings className="w-4 h-4" />
           </button>

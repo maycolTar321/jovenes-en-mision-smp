@@ -171,8 +171,8 @@ export const exportService = {
     });
 
     const stats = reportAnalysisService.generateStatistics(participants, accessCodes);
-    const primaryColor: [number, number, number] = [27, 67, 50]; // Forest 800
-    const goldColor: [number, number, number] = [180, 140, 40];
+    const primaryColor: [number, number, number] = [215, 25, 32]; // Rojo SMP #D71920
+    const goldColor: [number, number, number] = [23, 23, 23]; // Charcoal #171717
     const warningColor: [number, number, number] = [185, 28, 28]; // Rojo advertencia
 
     // Helper: Encabezado institucional en páginas subsiguientes
@@ -661,9 +661,9 @@ export const exportService = {
       format: 'a4'
     });
 
-    const primaryColor: [number, number, number] = [27, 67, 50]; // Forest 800
-    const goldColor: [number, number, number] = [180, 140, 40];
-    const terracottaColor: [number, number, number] = [190, 75, 40];
+    const primaryColor: [number, number, number] = [215, 25, 32]; // Rojo SMP #D71920
+    const goldColor: [number, number, number] = [23, 23, 23]; // Charcoal #171717
+    const terracottaColor: [number, number, number] = [215, 25, 32];
 
     // Helper: Encabezado institucional de página
     const drawPageHeader = (pageNumber: number) => {

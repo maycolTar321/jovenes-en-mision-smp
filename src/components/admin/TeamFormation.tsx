@@ -92,10 +92,10 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
       {/* Header & Controls */}
       <div className="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-soft flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-forest-700 bg-forest-50 px-3 py-1 rounded-full border border-forest-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">
             Módulo H • Propuesta de Equipos Mixtos
           </span>
-          <h2 className="text-2xl font-serif font-bold text-forest-950 mt-2">
+          <h2 className="text-2xl font-serif font-bold text-neutral-900 mt-2">
             Organización Sinodal y Formación de Cuadrillas
           </h2>
           <p className="text-xs text-stone-600 mt-1 max-w-xl leading-relaxed">
@@ -123,7 +123,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
 
           <button
             onClick={handleGenerate}
-            className="btn-gold py-2.5 px-5 rounded-xl font-bold text-forest-950 flex items-center gap-2 shadow hover:scale-[1.02] text-xs"
+            className="btn-primary py-2.5 px-5 rounded-xl font-bold text-white flex items-center gap-2 shadow hover:scale-[1.02] text-xs"
           >
             <Wand2 className="w-4 h-4" />
             <span>{teams.length > 0 ? 'Generar Nueva Propuesta' : 'Sugerir Equipos Mixtos'}</span>
@@ -144,11 +144,11 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
       {notification && (
         <div className={`p-4 rounded-xl border text-xs sm:text-sm flex items-start gap-3 animate-fadeIn ${
           notification.type === 'success' 
-            ? 'bg-emerald-50 border-emerald-200 text-emerald-900' 
+            ? 'bg-red-50 border-red-200 text-red-900' 
             : 'bg-amber-50 border-amber-200 text-amber-900'
         }`}>
           {notification.type === 'success' ? (
-            <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+            <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
           ) : (
             <Info className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
           )}
@@ -164,8 +164,8 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
       )}
 
       {/* Nota metodológica */}
-      <div className="bg-forest-50/70 p-4 rounded-2xl border border-forest-200 text-xs text-forest-950 flex items-start gap-3">
-        <Info className="w-4 h-4 text-forest-700 shrink-0 mt-0.5" />
+      <div className="bg-neutral-50 p-4 rounded-2xl border border-neutral-200 text-xs text-neutral-900 flex items-start gap-3">
+        <Info className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
         <span>
           <strong>Criterio de sugerencia:</strong> Las cuadrillas equilibran procedencias (Parroquia, San Francisco, Santa Teresa, Juan Pablo II, etc.), edad, talentos prácticos y disponibilidad horaria. Los catequistas tienen la autoridad final de ajustar miembros mediante el selector de cada tarjeta.
         </span>
@@ -174,7 +174,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
       {/* List of Teams */}
       {teams.length === 0 ? (
         <div className="card text-center py-16">
-          <div className="w-16 h-16 rounded-2xl bg-cream-200 text-forest-800 flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4">
             <Users className="w-8 h-8" />
           </div>
           <h3 className="text-lg font-serif font-bold text-stone-900">Aún no se ha sugerido una distribución de equipos</h3>
@@ -204,9 +204,9 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
               >
                 {/* Header del equipo */}
                 <div className={`p-4 text-white ${
-                  team.pillarId === 'corazones_en_accion' ? 'bg-terracotta-700' :
-                  team.pillarId === 'transformadores_de_esperanza' ? 'bg-amber-700' :
-                  'bg-forest-800'
+                  team.pillarId === 'corazones_en_accion' ? 'bg-red-700' :
+                  team.pillarId === 'transformadores_de_esperanza' ? 'bg-neutral-800' :
+                  'bg-neutral-900'
                 }`}>
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-bold uppercase tracking-widest bg-black/20 px-2.5 py-0.5 rounded-full">
@@ -224,11 +224,11 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
                 </div>
 
                 {/* Líder y Colíder */}
-                <div className="p-3 bg-cream-100/60 border-b border-cream-200 text-xs space-y-1">
+                <div className="p-3 bg-neutral-50 border-b border-neutral-200 text-xs space-y-1">
                   {leader && (
                     <div className="flex items-center justify-between">
-                      <span className="flex items-center gap-1 font-bold text-forest-900">
-                        <Star className="w-3.5 h-3.5 text-gold-600 fill-gold-500" /> Líder:
+                      <span className="flex items-center gap-1 font-bold text-neutral-900">
+                        <Star className="w-3.5 h-3.5 text-red-600 fill-red-500" /> Líder:
                       </span>
                       <span className="font-medium text-stone-800 truncate max-w-[180px]">{leader.fullName}</span>
                     </div>
@@ -298,7 +298,7 @@ export const TeamFormation: React.FC<TeamFormationProps> = ({
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-stone-400" /> Sábado 08:30
                   </span>
-                  <span className="text-forest-800 font-bold">
+                  <span className="text-red-600 font-bold">
                     {groupsInTeam.length} grupos mixtos
                   </span>
                 </div>

@@ -7,54 +7,72 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Rojo institucional principal del logo y la identidad (#D71920)
+        brand: {
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+          200: '#FECACA',
+          300: '#FCA5A5',
+          400: '#F87171',
+          500: '#EF4444',
+          600: '#D71920', // Rojo primario oficial
+          700: '#B91C1C',
+          800: '#991B1B',
+          900: '#7F1D1D',
+          950: '#450A0A',
+        },
+        // Mapeo de forest a Carbón / Negro / Gris (cero verde)
         forest: {
-          50: '#f2f7f4',
-          100: '#e1ede5',
-          200: '#c5dccf',
-          300: '#9cc3b0',
-          400: '#6fa58d',
-          500: '#4b886f',
-          600: '#386d57',
-          700: '#2d5746',
-          800: '#1b4332', // Verde bosque principal
-          900: '#143326',
-          950: '#0b1d16',
+          50: '#F9FAFB',
+          100: '#F3F4F6', // Gris claro
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF', // Gris medio
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
+          800: '#262626', // Carbón
+          900: '#171717', // Negro carbón (#171717)
+          950: '#0A0A0A', // Negro profundo
         },
+        // Mapeo de cream a Blanco y Gris claro
         cream: {
-          50: '#fdfbf7',
-          100: '#faf6ee',
-          200: '#f4ede0',
-          300: '#ede0cc',
-          400: '#dfcbb0',
-          500: '#d1b593',
-          DEFAULT: '#fdfbf7',
-          paper: '#f7f4ed',
-          card: '#ffffff',
-          dark: '#e9e1d2',
+          50: '#FFFFFF',  // Blanco puro
+          100: '#F9FAFB',
+          200: '#F3F4F6', // Gris claro (#F3F4F6)
+          300: '#E5E7EB',
+          400: '#D1D5DB',
+          500: '#9CA3AF',
+          DEFAULT: '#FFFFFF',
+          paper: '#F9FAFB',
+          card: '#FFFFFF',
+          dark: '#E5E7EB',
         },
+        // Mapeo de terracotta al Rojo institucional
         terracotta: {
-          50: '#fdf4f0',
-          100: '#fbe6de',
-          200: '#f7cfc0',
-          300: '#f1ad97',
-          400: '#e88267',
-          500: '#db5e3d',
-          600: '#c85a32', // Terracota principal
-          700: '#a73e1c',
-          800: '#87341b',
-          900: '#6f2e1a',
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+          200: '#FECACA',
+          300: '#FCA5A5',
+          400: '#F87171',
+          500: '#EF4444',
+          600: '#D71920', // Rojo
+          700: '#B91C1C',
+          800: '#991B1B',
+          900: '#7F1D1D',
         },
+        // Acentos dorados o ámbar de la cruz
         gold: {
-          50: '#fefbf1',
-          100: '#fcf5dc',
-          200: '#f8e9b4',
-          300: '#f3d882',
-          400: '#ecc555',
-          500: '#d4af37', // Dorado suave principal
-          600: '#ba9427',
-          700: '#946f20',
-          800: '#7a5720',
-          900: '#664720',
+          50: '#FFFBEB',
+          100: '#FEF3C7',
+          200: '#FDE68A',
+          300: '#FCD34D',
+          400: '#FBBF24',
+          500: '#D71920', // Rojo para botones destacados
+          600: '#B91C1C',
+          700: '#B45309',
+          800: '#92400E',
+          900: '#78350F',
         },
       },
       fontFamily: {
@@ -62,8 +80,8 @@ export default {
         serif: ['Merriweather', 'Georgia', 'serif'],
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(27, 67, 50, 0.08)',
-        'elevated': '0 10px 30px -5px rgba(27, 67, 50, 0.15)',
+        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.06)',
+        'elevated': '0 10px 30px -5px rgba(0, 0, 0, 0.12)',
       }
     },
   },

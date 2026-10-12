@@ -12,15 +12,15 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalStep
   return (
     <div className="w-full mb-8">
       {/* Percentage text */}
-      <div className="flex items-center justify-between text-xs font-semibold text-forest-800 uppercase tracking-wider mb-2">
+      <div className="flex items-center justify-between text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-2">
         <span>Paso {currentStep} de {totalSteps}: {stepLabels[currentStep - 1]}</span>
-        <span className="text-terracotta-600 font-bold">{percentage}%</span>
+        <span className="text-red-600 font-bold">{percentage}%</span>
       </div>
 
       {/* Progress Track */}
       <div className="w-full h-2.5 bg-stone-200/80 rounded-full overflow-hidden">
         <div 
-          className="h-full bg-gradient-to-r from-forest-700 via-forest-600 to-terracotta-500 transition-all duration-500 rounded-full shadow-sm"
+          className="h-full bg-gradient-to-r from-neutral-900 via-red-600 to-red-500 transition-all duration-500 rounded-full shadow-sm"
           style={{ width: `${percentage}%` }}
         />
       </div>
@@ -37,9 +37,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalStep
               <div 
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
                   isCompleted 
-                    ? 'bg-forest-800 text-white' 
+                    ? 'bg-neutral-900 text-white' 
                     : isCurrent 
-                      ? 'bg-terracotta-600 text-white ring-4 ring-terracotta-100 shadow' 
+                      ? 'bg-red-600 text-white ring-4 ring-red-100 shadow' 
                       : 'bg-stone-200 text-stone-500'
                 }`}
               >

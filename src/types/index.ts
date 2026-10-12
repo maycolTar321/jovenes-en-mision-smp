@@ -1,12 +1,12 @@
 export type ConfirmationGroup = 
-  | 'San Francisco de Asís'
-  | 'Santa Teresa de Calcuta'
-  | 'San Juan Pablo II'
-  | 'Beata Chiara Badano'
-  | 'Santo Toribio de Mogrovejo'
-  | 'San Ignacio de Loyola'
-  | 'Santa Rosa de Lima'
-  | 'Otro grupo';
+  | 'Grupo 1 - San Francisco de Asís'
+  | 'Grupo 2 - Santa Teresa de Calcuta'
+  | 'Grupo 3 - San Juan Pablo II'
+  | 'Grupo 4 - Beata Chiara Badano'
+  | 'Grupo 5 - Santo Toribio de Mogrovejo'
+  | 'Grupo 6 - San Ignacio de Loyola'
+  | 'Grupo 7 - Santa Rosa de Lima'
+  | string;
 
 export type PillarId = 
   | 'casa_comun' 

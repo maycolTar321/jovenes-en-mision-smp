@@ -180,11 +180,11 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
       <div className="bg-white rounded-3xl border border-stone-200/90 p-6 sm:p-8 shadow-soft">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-forest-50 text-forest-800 border border-forest-200/80 mb-2">
-              <BookOpen className="w-3.5 h-3.5 text-forest-700" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200/80 mb-2">
+              <BookOpen className="w-3.5 h-3.5 text-red-600" />
               <span>Módulo Documental Oficial • Parroquia San Martín de Porres</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-forest-950">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-neutral-900">
               Informes Estadísticos y Proyecto Pastoral
             </h2>
             <p className="text-xs sm:text-sm text-stone-500 mt-1 max-w-2xl">
@@ -196,7 +196,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <button
               onClick={handleExportDocAExcel}
               disabled={downloading !== null}
-              className="px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
             >
               <FileSpreadsheet className="w-4 h-4" />
               <span>{downloading === 'docA-excel' ? 'Exportando...' : 'Excel Estadístico (.xlsx)'}</span>
@@ -204,7 +204,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <button
               onClick={handleExportDocAPdf}
               disabled={downloading !== null}
-              className="px-3.5 py-2 bg-forest-800 hover:bg-forest-900 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-3.5 py-2 bg-neutral-900 hover:bg-black text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
             >
               <Download className="w-4 h-4" />
               <span>{downloading === 'docA-pdf' ? 'Generando...' : 'PDF Documento A'}</span>
@@ -212,7 +212,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <button
               onClick={handleExportDocBPdf}
               disabled={downloading !== null}
-              className="px-3.5 py-2 bg-terracotta-700 hover:bg-terracotta-800 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-sm transition-all"
             >
               <Download className="w-4 h-4" />
               <span>{downloading === 'docB-pdf' ? 'Generando...' : 'PDF Documento B'}</span>
@@ -226,7 +226,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             onClick={() => setActiveSubTab('docA')}
             className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
               activeSubTab === 'docA'
-                ? 'border-forest-800 text-forest-900'
+                ? 'border-red-600 text-red-600'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -243,7 +243,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             onClick={() => setActiveSubTab('docB')}
             className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
               activeSubTab === 'docB'
-                ? 'border-terracotta-700 text-terracotta-900'
+                ? 'border-red-600 text-red-600'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -258,7 +258,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             onClick={() => setActiveSubTab('versions')}
             className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
               activeSubTab === 'versions'
-                ? 'border-gold-600 text-gold-900'
+                ? 'border-red-600 text-red-600'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -292,25 +292,25 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="bg-white p-4 rounded-2xl border border-stone-200/90 shadow-soft">
               <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500">Total Censados</span>
-              <p className="text-2xl font-serif font-bold text-forest-950 mt-1">{stats.totalParticipants}</p>
+              <p className="text-2xl font-serif font-bold text-neutral-900 mt-1">{stats.totalParticipants}</p>
               <span className="text-[11px] text-stone-500">Jóvenes confirmados</span>
             </div>
 
             <div className="bg-white p-4 rounded-2xl border border-stone-200/90 shadow-soft">
               <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500">Tasa de Respuesta</span>
-              <p className="text-2xl font-serif font-bold text-forest-950 mt-1">{stats.responseRatePercent}%</p>
+              <p className="text-2xl font-serif font-bold text-neutral-900 mt-1">{stats.responseRatePercent}%</p>
               <span className="text-[11px] text-stone-500">Sobre códigos habilitados</span>
             </div>
 
             <div className="bg-white p-4 rounded-2xl border border-stone-200/90 shadow-soft">
               <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500">Grupos Presentes</span>
-              <p className="text-2xl font-serif font-bold text-forest-950 mt-1">{stats.groupsBreakdown.length}</p>
+              <p className="text-2xl font-serif font-bold text-neutral-900 mt-1">{stats.groupsBreakdown.length}</p>
               <span className="text-[11px] text-stone-500">Grupos de catequesis</span>
             </div>
 
             <div className="bg-white p-4 rounded-2xl border border-stone-200/90 shadow-soft">
               <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500">Edad Promedio</span>
-              <p className="text-2xl font-serif font-bold text-forest-950 mt-1">{stats.averageAge} años</p>
+              <p className="text-2xl font-serif font-bold text-neutral-900 mt-1">{stats.averageAge} años</p>
               <span className="text-[11px] text-stone-500">Población juvenil</span>
             </div>
           </div>
@@ -334,7 +334,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                     </div>
                     <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-forest-700 rounded-full transition-all duration-500"
+                        className="h-full bg-red-600 rounded-full transition-all duration-500"
                         style={{ width: `${g.percent}%` }}
                       />
                     </div>
@@ -359,7 +359,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                       <p className="text-[11px] text-stone-500">Vocación manifestada en el censo</p>
                     </div>
                     <div className="text-right">
-                      <span className="text-base font-serif font-bold text-forest-900">{p.count}</span>
+                      <span className="text-base font-serif font-bold text-neutral-900">{p.count}</span>
                       <span className="text-xs text-stone-500 ml-1">({p.percent}%)</span>
                     </div>
                   </div>
@@ -382,7 +382,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 {stats.skillsBreakdown.map((s, i) => (
                   <div key={i} className="flex items-center justify-between p-2 rounded-lg hover:bg-stone-50 text-xs">
                     <span className="text-stone-700">{s.label}</span>
-                    <span className="font-semibold text-forest-800 bg-forest-50 px-2 py-0.5 rounded-full">
+                    <span className="font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded-full">
                       {s.count} ({s.percent}%)
                     </span>
                   </div>
@@ -413,7 +413,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
 
           {/* Secciones 14 a 17: Análisis Riguroso */}
           <div className="bg-white p-6 rounded-3xl border border-stone-200/90 shadow-soft space-y-6">
-            <h3 className="font-serif font-bold text-lg text-forest-950 border-b border-stone-100 pb-3">
+            <h3 className="font-serif font-bold text-lg text-neutral-900 border-b border-stone-100 pb-3">
               14, 15, 16 y 17. Análisis Cualitativo, Limitaciones y Recomendaciones
             </h3>
 
@@ -421,7 +421,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
               {/* Hechos Observados vs Interpretación */}
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-forest-800 mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-900 mb-2">
                     Hechos Observados Demostrados:
                   </h4>
                   <ul className="text-xs text-stone-600 space-y-1.5 list-disc pl-4">
@@ -432,7 +432,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-forest-800 mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-900 mb-2">
                     Interpretación Pastoral:
                   </h4>
                   <ul className="text-xs text-stone-600 space-y-1.5 list-disc pl-4">
@@ -457,7 +457,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800 mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-red-700 mb-2">
                     Recomendaciones para Catequistas:
                   </h4>
                   <ul className="text-xs text-stone-600 space-y-1.5 list-disc pl-4">
@@ -485,7 +485,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 <button
                   onClick={handleExportDocAExcel}
                   disabled={downloading !== null}
-                  className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all"
+                  className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all"
                 >
                   <FileSpreadsheet className="w-4 h-4" />
                   <span>Exportar Excel Completo (.xlsx)</span>
@@ -493,7 +493,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 <button
                   onClick={handleExportDocAPdf}
                   disabled={downloading !== null}
-                  className="px-4 py-2 bg-forest-800 hover:bg-forest-900 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all shadow-sm"
+                  className="px-4 py-2 bg-neutral-900 hover:bg-black text-white rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all shadow-sm"
                 >
                   <Download className="w-4 h-4" />
                   <span>Descargar Informe en PDF</span>
@@ -607,7 +607,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             {/* Criterio de Selección de la Obra Definitiva */}
             <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200/70 space-y-2">
               <div className="flex items-center gap-2">
-                <HelpCircle className="w-4 h-4 text-forest-700" />
+                <HelpCircle className="w-4 h-4 text-red-600" />
                 <h4 className="text-xs font-bold text-stone-900">
                   Criterio de Elección de los Tres Pilares
                 </h4>
@@ -623,7 +623,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 pb-3">
               <div>
                 <h3 className="font-serif font-bold text-base text-stone-900 flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-emerald-700" />
+                  <DollarSign className="w-5 h-5 text-red-600" />
                   <span>17. Presupuesto y Materiales Estimados (en Bolivianos - BOB)</span>
                 </h3>
                 <p className="text-xs text-stone-500 mt-0.5">
@@ -633,7 +633,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
 
               <button
                 onClick={() => setIsAddBudgetOpen(true)}
-                className="px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto"
+                className="px-3.5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto"
               >
                 <Plus className="w-4 h-4" />
                 <span>Agregar Partida / Insumo</span>
@@ -644,20 +644,20 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
                 <span className="text-[10px] font-bold uppercase text-stone-500">Aportes y Donaciones</span>
-                <p className="text-xl font-serif font-bold text-emerald-800 mt-1">{subtotalDonaciones} Bs.</p>
+                <p className="text-xl font-serif font-bold text-neutral-900 mt-1">{subtotalDonaciones} Bs.</p>
                 <span className="text-[11px] text-stone-500">Cubierto por comunidad/donantes</span>
               </div>
 
               <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200">
                 <span className="text-[10px] font-bold uppercase text-stone-500">Fondo Requerido Parroquia</span>
-                <p className="text-xl font-serif font-bold text-forest-900 mt-1">{subtotalParroquia} Bs.</p>
+                <p className="text-xl font-serif font-bold text-neutral-900 mt-1">{subtotalParroquia} Bs.</p>
                 <span className="text-[11px] text-stone-500">Recursos pastorales líquidos</span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-forest-900 text-white shadow-soft">
-                <span className="text-[10px] font-bold uppercase text-forest-200">Presupuesto Total Estimado</span>
-                <p className="text-xl font-serif font-bold text-gold-300 mt-1">{totalGeneralBob} Bs.</p>
-                <span className="text-[11px] text-forest-200">
+              <div className="p-4 rounded-2xl bg-neutral-950 text-white shadow-soft">
+                <span className="text-[10px] font-bold uppercase text-neutral-300">Presupuesto Total Estimado</span>
+                <p className="text-xl font-serif font-bold text-red-400 mt-1">{totalGeneralBob} Bs.</p>
+                <span className="text-[11px] text-neutral-300">
                   {pendientesCotizacion > 0 ? `(${pendientesCotizacion} ítem(s) pendiente cotizar)` : 'Todas las partidas cotizadas'}
                 </span>
               </div>
@@ -703,7 +703,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                         <td className="p-3">
                           <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
                             item.isCoveredByDonation 
-                              ? 'bg-emerald-100 text-emerald-800' 
+                              ? 'bg-red-50 text-red-700' 
                               : 'bg-stone-200 text-stone-800'
                           }`}>
                             {item.isCoveredByDonation ? 'Donación / Aporte' : 'Fondo Parroquial'}
@@ -735,7 +735,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
               </h3>
               <div className="text-xs text-stone-700 space-y-3 leading-relaxed">
                 <div>
-                  <h4 className="font-bold text-forest-800 uppercase tracking-wide text-[11px] mb-1">
+                  <h4 className="font-bold text-neutral-900 uppercase tracking-wide text-[11px] mb-1">
                     Textos Bíblicos Verificados:
                   </h4>
                   <p className="italic text-stone-600 whitespace-pre-line">
@@ -743,7 +743,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-forest-800 uppercase tracking-wide text-[11px] mb-1">
+                  <h4 className="font-bold text-neutral-900 uppercase tracking-wide text-[11px] mb-1">
                     Magisterio Pontificio y Social:
                   </h4>
                   <p className="text-stone-600 whitespace-pre-line">
@@ -779,7 +779,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
         <div className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200/90 shadow-soft space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-4">
             <div>
-              <h3 className="font-serif font-bold text-lg text-forest-950">
+              <h3 className="font-serif font-bold text-lg text-neutral-900">
                 Historial de Versiones del Proyecto Pastoral
               </h3>
               <p className="text-xs text-stone-500 mt-0.5">
@@ -789,7 +789,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
 
             <button
               onClick={() => setIsVersionModalOpen(true)}
-              className="px-4 py-2 bg-forest-800 hover:bg-forest-900 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+              className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Crear Nueva Versión</span>
@@ -800,11 +800,11 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
             {versions.map(v => (
               <div
                 key={v.versionId}
-                className="p-5 rounded-2xl border border-stone-200 hover:border-forest-300 bg-stone-50/60 hover:bg-white transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
+                className="p-5 rounded-2xl border border-stone-200 hover:border-red-300 bg-stone-50/60 hover:bg-white transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-xs bg-forest-100 text-forest-800 px-2.5 py-0.5 rounded-full">
+                    <span className="font-mono font-bold text-xs bg-red-50 text-red-700 px-2.5 py-0.5 rounded-full border border-red-200">
                       v{v.versionNumber}
                     </span>
                     <h4 className="font-bold text-sm text-stone-900">
@@ -825,7 +825,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleRestoreVersion(v.versionId)}
-                    className="px-3.5 py-1.5 border border-forest-300 text-forest-800 hover:bg-forest-50 rounded-xl text-xs font-medium flex items-center gap-1 transition-all"
+                    className="px-3.5 py-1.5 border border-stone-300 text-stone-800 hover:bg-stone-100 rounded-xl text-xs font-medium flex items-center gap-1 transition-all"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                     <span>Restaurar Esta Versión</span>
@@ -843,7 +843,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
       {isVersionModalOpen && (
         <div className="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-elevated border border-stone-200 animate-fadeIn space-y-4">
-            <h3 className="font-serif font-bold text-lg text-forest-950">
+            <h3 className="font-serif font-bold text-lg text-neutral-900">
               Guardar Nueva Versión del Proyecto Pastoral
             </h3>
             <p className="text-xs text-stone-500">
@@ -895,7 +895,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-forest-800 text-white rounded-xl text-xs font-semibold hover:bg-forest-900"
+                  className="px-4 py-2 bg-red-600 text-white rounded-xl text-xs font-semibold hover:bg-red-700"
                 >
                   Guardar Versión
                 </button>
@@ -911,7 +911,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
       {isAddBudgetOpen && (
         <div className="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-elevated border border-stone-200 animate-fadeIn space-y-4">
-            <h3 className="font-serif font-bold text-lg text-emerald-950">
+            <h3 className="font-serif font-bold text-lg text-neutral-900">
               Agregar Partida al Presupuesto (BOB)
             </h3>
             <p className="text-xs text-stone-500">
@@ -990,7 +990,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                   id="isDonation"
                   checked={newBudgetIsDonation}
                   onChange={e => setNewBudgetIsDonation(e.target.checked)}
-                  className="rounded text-emerald-700 focus:ring-emerald-600"
+                  className="rounded text-red-600 focus:ring-red-500"
                 />
                 <label htmlFor="isDonation" className="text-xs text-stone-700">
                   Es donación comunitaria o aporte de familias (no requiere fondo parroquial)
@@ -1007,7 +1007,7 @@ export const ReportsGenerator: React.FC<ReportsGeneratorProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-emerald-700 text-white rounded-xl text-xs font-semibold hover:bg-emerald-800"
+                  className="px-4 py-2 bg-red-600 text-white rounded-xl text-xs font-semibold hover:bg-red-700"
                 >
                   Agregar Insumo
                 </button>
