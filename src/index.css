@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Merriweather', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium bg-forest-800 text-white hover:bg-forest-900 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-forest-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium bg-white text-stone-700 border border-stone-300 hover:bg-cream-100 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-forest-600 focus:ring-offset-2 disabled:opacity-50;
+  }
+
+  .btn-terracotta {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium bg-terracotta-600 text-white hover:bg-terracotta-700 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2 disabled:opacity-50;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium bg-gold-500 text-stone-900 font-semibold hover:bg-gold-600 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 disabled:opacity-50;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-stone-200/80 shadow-soft p-6 transition-all;
+  }
+
+  .card-cream {
+    @apply bg-cream-100 rounded-xl border border-cream-300/80 p-6;
+  }
+
+  .badge-forest {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-forest-100 text-forest-800 border border-forest-200;
+  }
+
+  .badge-terracotta {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-terracotta-100 text-terracotta-800 border border-terracotta-200;
+  }
+
+  .badge-gold {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gold-100 text-gold-900 border border-gold-300;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #9bc0e4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #69a1d4;
+}

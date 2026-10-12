@@ -1,0 +1,269 @@
+import React, { useState, useEffect } from 'react';
+import { Participant, MixedTeam, SocialProjectTracking, SystemConfig } from '../../types';
+import { AdminDashboard } from './AdminDashboard';
+import { ParticipantsList } from './ParticipantsList';
+import { SkillsAnalysis } from './SkillsAnalysis';
+import { TeamFormation } from './TeamFormation';
+import { ProjectTracker } from './ProjectTracker';
+import { ReportsGenerator } from './ReportsGenerator';
+import { SettingsModal } from './SettingsModal';
+import { 
+  LayoutDashboard, Users, Sparkles, Wand2, ClipboardList, FileDown, Settings, Lock, KeyRound, LogOut, ShieldCheck, Eye, EyeOff 
+} from 'lucide-react';
+
+interface AdminLayoutProps {
+  participants: Participant[];
+  teams: MixedTeam[];
+  project: SocialProjectTracking;
+  config: SystemConfig;
+  onParticipantDeleted: (id: string) => void;
+  onTeamsUpdated: (teams: MixedTeam[]) => void;
+  onProjectUpdated: (project: SocialProjectTracking) => void;
+  onConfigSaved: (config: SystemConfig) => void;
+  onResetData: () => void;
+  onRefresh: () => void;
+  onExitAdmin: () => void;
+}
+
+export type AdminTab = 
+  | 'dashboard'
+  | 'participants'
+  | 'skills'
+  | 'teams'
+  | 'project'
+  | 'reports';
+
+export const AdminLayout: React.FC<AdminLayoutProps> = ({
+  participants,
+  teams,
+  project,
+  config,
+  onParticipantDeleted,
+  onTeamsUpdated,
+  onProjectUpdated,
+  onConfigSaved,
+  onResetData,
+  onRefresh,
+  onExitAdmin
+}) => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [pinInput, setPinInput] = useState<string>('');
+  const [showPin, setShowPin] = useState<boolean>(false);
+  const [pinError, setPinError] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<AdminTab>('dashboard');
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+
+  // Check session auth
+  useEffect(() => {
+    const authStatus = sessionStorage.getItem('smp_admin_authenticated');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (pinInput.trim() === config.adminPin) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem('smp_admin_authenticated', 'true');
+      setPinError(false);
+    } else {
+      setPinError(true);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem('smp_admin_authenticated');
+    setPinInput('');
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="max-w-md mx-auto my-12 p-8 bg-white rounded-3xl border border-stone-200 shadow-elevated text-center space-y-6">
+        <div className="w-16 h-16 rounded-2xl bg-forest-100 text-forest-800 flex items-center justify-center mx-auto shadow-inner">
+          <Lock className="w-8 h-8 text-forest-700" />
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-serif font-bold text-forest-950">Acceso al Panel Pastoral</h2>
+          <p className="text-xs text-stone-500 mt-1">
+            Área reservada para el Párroco, Coordinador de Confirmación y Consejo Pastoral.
+          </p>
+        </div>
+
+        <form onSubmit={handleLogin} className="space-y-4">
+          <div>
+            <div className="relative">
+              <KeyRound className="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5" />
+              <input
+                type={showPin ? 'text' : 'password'}
+                required
+                placeholder="Ingresa el PIN de seguridad"
+                value={pinInput}
+                onChange={e => {
+                  setPinInput(e.target.value);
+                  setPinError(false);
+                }}
+                className={`w-full pl-10 pr-11 py-3 rounded-xl border text-sm text-stone-900 focus:outline-none ${
+                  pinError ? 'border-red-500 ring-2 ring-red-100' : 'border-stone-300 focus:ring-2 focus:ring-forest-600'
+                }`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPin(!showPin)}
+                className="absolute right-3 top-3 p-0.5 text-stone-400 hover:text-stone-700 transition-colors"
+                title={showPin ? "Ocultar contraseña" : "Ver contraseña"}
+              >
+                {showPin ? (
+                  <EyeOff className="w-4 h-4 text-stone-600" />
+                ) : (
+                  <Eye className="w-4 h-4" />
+                )}
+              </button>
+            </div>
+            {pinError && (
+              <p className="text-xs text-red-600 mt-1.5 text-left font-medium">
+                PIN incorrecto. (PIN por defecto: smp2026)
+              </p>
+            )}
+          </div>
+
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={onExitAdmin}
+              className="btn-secondary w-1/2 text-xs"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              className="btn-primary w-1/2 text-xs font-bold"
+            >
+              Ingresar
+            </button>
+          </div>
+        </form>
+
+        <p className="text-[11px] text-stone-400">
+          Parroquia San Martín de Porres • Tarija
+        </p>
+      </div>
+    );
+  }
+
+  const navItems = [
+    { id: 'dashboard' as AdminTab, label: 'Dashboard & Métricas', icon: LayoutDashboard },
+    { id: 'participants' as AdminTab, label: 'Participantes & Códigos', icon: Users },
+    { id: 'skills' as AdminTab, label: 'Análisis de Talentos', icon: Sparkles },
+    { id: 'teams' as AdminTab, label: 'Equipos Mixtos', icon: Wand2 },
+    { id: 'project' as AdminTab, label: 'Ficha del Proyecto', icon: ClipboardList },
+    { id: 'reports' as AdminTab, label: 'Informes & Descargas', icon: FileDown },
+  ];
+
+  return (
+    <div className="space-y-6">
+      {/* Admin Nav Bar */}
+      <div className="bg-white rounded-2xl border border-stone-200/90 shadow-soft p-2.5 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1">
+          {navItems.map(item => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+                  isActive
+                    ? 'bg-forest-800 text-white shadow-sm'
+                    : 'text-stone-600 hover:bg-cream-100 hover:text-stone-900'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setIsSettingsOpen(true)}
+            title="Configuración de Backend"
+            className="p-2 rounded-xl text-stone-600 hover:bg-stone-100 hover:text-forest-800"
+          >
+            <Settings className="w-4 h-4" />
+          </button>
+          <button
+            onClick={handleLogout}
+            title="Cerrar Sesión Administrativa"
+            className="p-2 rounded-xl text-stone-500 hover:bg-red-50 hover:text-red-600"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Main Tab Content */}
+      <div>
+        {activeTab === 'dashboard' && (
+          <AdminDashboard
+            participants={participants}
+            teams={teams}
+            project={project}
+            config={config}
+            onRefresh={onRefresh}
+          />
+        )}
+
+        {activeTab === 'participants' && (
+          <ParticipantsList
+            participants={participants}
+            onParticipantDeleted={onParticipantDeleted}
+            onRefresh={onRefresh}
+          />
+        )}
+
+        {activeTab === 'skills' && (
+          <SkillsAnalysis
+            participants={participants}
+          />
+        )}
+
+        {activeTab === 'teams' && (
+          <TeamFormation
+            participants={participants}
+            teams={teams}
+            onTeamsUpdated={onTeamsUpdated}
+          />
+        )}
+
+        {activeTab === 'project' && (
+          <ProjectTracker
+            project={project}
+            onProjectUpdated={onProjectUpdated}
+          />
+        )}
+
+        {activeTab === 'reports' && (
+          <ReportsGenerator
+            participants={participants}
+            teams={teams}
+            project={project}
+            onProjectUpdated={onProjectUpdated}
+          />
+        )}
+      </div>
+
+      {/* Settings Modal */}
+      <SettingsModal
+        config={config}
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        onConfigSaved={onConfigSaved}
+        onResetData={onResetData}
+      />
+    </div>
+  );
+};
