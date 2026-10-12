@@ -37,11 +37,11 @@
 
   /* Tarjetas limpias en blanco y gris claro */
   .card {
-    @apply bg-white rounded-2xl border border-neutral-200 shadow-soft p-6 transition-all;
+    @apply bg-white rounded-xl sm:rounded-2xl border border-neutral-200 shadow-soft p-4 sm:p-6 transition-all;
   }
 
   .card-cream {
-    @apply bg-neutral-50 rounded-2xl border border-neutral-200 p-6;
+    @apply bg-neutral-50 rounded-xl sm:rounded-2xl border border-neutral-200 p-4 sm:p-6;
   }
 
   .badge-forest {

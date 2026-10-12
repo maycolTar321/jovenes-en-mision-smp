@@ -4,7 +4,7 @@ import { APP_INFO } from '../../config/constants';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-neutral-950 text-neutral-300 border-t border-neutral-900 mt-20 pt-12 pb-8">
+    <footer className="bg-neutral-950 text-neutral-300 border-t border-neutral-900 mt-8 sm:mt-16 pt-8 sm:pt-12 pb-6 sm:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-neutral-900">
           

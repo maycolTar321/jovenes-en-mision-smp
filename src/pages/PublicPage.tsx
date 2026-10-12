@@ -52,7 +52,7 @@ export const PublicPage: React.FC<PublicPageProps> = ({
   };
 
   return (
-    <div className="py-6 sm:py-10">
+    <div className="py-3 sm:py-8">
       {viewState === 'hero' && (
         <HeroPresentation
           onStartSurvey={handleStartSurvey}

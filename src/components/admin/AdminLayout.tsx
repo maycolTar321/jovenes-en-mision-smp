@@ -188,10 +188,10 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Admin Nav Bar */}
-      <div className="bg-white rounded-2xl border border-stone-200/90 shadow-soft p-2.5 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-1">
+      <div className="bg-white rounded-xl sm:rounded-2xl border border-stone-200/90 shadow-soft p-2 sm:p-2.5 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex items-center gap-1 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
           {navItems.map(item => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -199,7 +199,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shrink-0 ${
                   isActive
                     ? 'bg-red-600 text-white shadow-sm'
                     : 'text-stone-600 hover:bg-neutral-100 hover:text-stone-900'
@@ -212,11 +212,11 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           })}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 ml-auto sm:ml-0">
           <button
             onClick={() => setIsSettingsOpen(true)}
             title="Configuración de Backend"
-            className="p-2 rounded-xl text-stone-600 hover:bg-stone-100 hover:text-red-600"
+            className="p-1.5 sm:p-2 rounded-xl text-stone-600 hover:bg-stone-100 hover:text-red-600"
           >
             <Settings className="w-4 h-4" />
           </button>

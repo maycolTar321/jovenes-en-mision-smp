@@ -12,42 +12,46 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onOpenAdminAuth, surveyCount }) => {
   return (
     <header className="sticky top-0 z-40 bg-neutral-900/95 backdrop-blur-md text-white border-b border-neutral-800 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between min-h-[3.75rem] py-2 sm:h-20 sm:py-0">
           
           {/* Logo & Identity */}
           <div 
             onClick={() => onViewChange('public')}
-            className="flex items-center gap-3.5 cursor-pointer group"
+            className="flex items-center gap-2.5 sm:gap-3.5 cursor-pointer group min-w-0 flex-1 mr-2"
           >
-            <div className="w-12 h-12 rounded-2xl bg-white border-2 border-red-600/40 p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white border-2 border-red-600/40 p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0">
               <img
                 src="/logo.png"
                 alt="Logo Catequistas San Martín de Porres"
                 className="w-full h-full object-contain"
               />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif font-bold text-lg tracking-wide text-white">
+            <div className="min-w-0 flex-1">
+              <span className="text-[9px] sm:text-[10px] text-red-400 font-bold tracking-widest uppercase truncate block">
+                {APP_INFO.parish}
+              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-serif font-black text-sm sm:text-base md:text-lg tracking-tight text-white leading-tight truncate">
                   {APP_INFO.name}
                 </span>
-                <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider bg-red-600/20 text-red-300 rounded border border-red-500/40">
+                <span className="hidden md:inline-block px-1.5 py-0.2 text-[9px] uppercase font-bold tracking-wider bg-red-600/20 text-red-300 rounded border border-red-500/40">
                   Tarija
                 </span>
               </div>
-              <p className="text-xs text-neutral-400 font-light flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-red-500" />
-                <span className="italic tracking-wider">{APP_INFO.motto}</span>
+              <p className="text-[10px] sm:text-xs text-neutral-300 font-light truncate flex items-center gap-1 mt-0.5">
+                <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-500 shrink-0" />
+                <span className="italic tracking-wide">{APP_INFO.motto}</span>
               </p>
             </div>
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            {/* Botón de encuesta visible en escritorio (en móvil ya está en la barra inferior) */}
             <button
               onClick={() => onViewChange('public')}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`hidden md:inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 currentView === 'public'
                   ? 'bg-red-600 text-white shadow-md hover:bg-red-700'
                   : 'text-neutral-300 hover:bg-neutral-800 hover:text-white'
@@ -63,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange, onOpe
               onClick={onOpenAdminAuth}
               aria-label="Acceso reservado de coordinación"
               title="Acceso reservado"
-              className="p-2 sm:p-2.5 rounded-xl text-neutral-400 hover:text-red-400 hover:bg-neutral-800 active:scale-90 transition-all focus:outline-none focus:ring-2 focus:ring-red-500/50 shadow-sm"
+              className="p-2 sm:p-2.5 rounded-xl text-neutral-300 hover:text-red-400 hover:bg-neutral-800 active:scale-90 transition-all focus:outline-none focus:ring-2 focus:ring-red-500/50 shadow-sm"
             >
               <ShieldCheck className="w-5 h-5 text-neutral-300 hover:text-red-400" />
               <span className="sr-only">Acceso reservado de coordinación</span>

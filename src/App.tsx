@@ -100,7 +100,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 pb-16 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 pb-24 sm:pb-28 md:pb-0">
       <Navbar
         currentView={currentView}
         onViewChange={(view) => {
@@ -114,7 +114,7 @@ export function App() {
         surveyCount={participants.length}
       />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8">
         {currentView === 'public' ? (
           <PublicPage
             config={config}
